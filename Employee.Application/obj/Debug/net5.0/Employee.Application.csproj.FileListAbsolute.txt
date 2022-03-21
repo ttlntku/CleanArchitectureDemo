@@ -1,0 +1,17 @@
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\bin\Debug\net5.0\Employee.Application.deps.json
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\bin\Debug\net5.0\Employee.Application.dll
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\bin\Debug\net5.0\ref\Employee.Application.dll
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\bin\Debug\net5.0\Employee.Application.pdb
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\obj\Debug\net5.0\Employee.Application.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\obj\Debug\net5.0\Employee.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\obj\Debug\net5.0\Employee.Application.AssemblyInfoInputs.cache
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\obj\Debug\net5.0\Employee.Application.AssemblyInfo.cs
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\obj\Debug\net5.0\Employee.Application.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\obj\Debug\net5.0\Employee.Application.dll
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\obj\Debug\net5.0\ref\Employee.Application.dll
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\obj\Debug\net5.0\Employee.Application.pdb
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\bin\Debug\net5.0\Employee.Core.dll
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\bin\Debug\net5.0\Employee.Infrastructure.dll
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\bin\Debug\net5.0\Employee.Core.pdb
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\bin\Debug\net5.0\Employee.Infrastructure.pdb
+C:\Users\Administrator\source\repos\CleanArchitectureDemo\Employee.Application\obj\Debug\net5.0\Employee.Application.csproj.CopyComplete
