@@ -11,8 +11,8 @@ namespace Employee.Infrastructure.Repositories.Base
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected readonly EmployeeContext _employeeContext;
-        public Repository(EmployeeContext employeeContext)
+        protected readonly MyDbContext _employeeContext;
+        public Repository(MyDbContext employeeContext)
         {
             _employeeContext = employeeContext;
         }
@@ -29,7 +29,7 @@ namespace Employee.Infrastructure.Repositories.Base
             await _employeeContext.SaveChangesAsync();
         }
 
-        public async Task<IReadOnlyList<T>> GetAllAsync()
+        public async Task<List<T>> GetAllAsync()
         {
             return await _employeeContext.Set<T>().ToListAsync();
         }

@@ -13,6 +13,7 @@ namespace Employee.Application.Mappers
     {
         public EmployeeMappingProfile()
         {
+            //configure mapping profile for employee
             CreateMap<Employee.Core.Entities.Employee, EmployeeResponse>().ReverseMap();
             CreateMap<Employee.Core.Entities.Employee, CreateEmployeeCommand>().ReverseMap();
         }
