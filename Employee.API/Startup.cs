@@ -18,6 +18,8 @@ using Employee.Infrastructure.Repositories.Base;
 using MediatR;
 using AutoWrapper;
 using Idoba.API.Helper.ApiResponse;
+using Employee.Application.Validations;
+using FluentValidation;
 
 namespace Employee.API
 {
@@ -46,6 +48,10 @@ namespace Employee.API
             services.AddMediatR(typeof(GetAllEmployeeHandler).GetTypeInfo().Assembly);
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+
+            //validator configuration
+            services.AddValidatorsFromAssembly(typeof(Startup).Assembly);
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
