@@ -1,14 +1,16 @@
-﻿using System;
+﻿using Employee.Core.Entities.Base;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Employee.Core.Entities
 {
-    public class Employee
+    public class Employee : BaseEntity
     {
-        public Int64 Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
