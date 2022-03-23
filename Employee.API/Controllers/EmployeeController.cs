@@ -45,5 +45,25 @@ namespace Employee.API.Controllers
                 throw new ApiException(ex.ToString(), StatusCodes.Status500InternalServerError);
             }
         }
+
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<CustomApiResponse> Post([FromBody] CreateEmployeeCommand createEmployeeCommand)
+        {
+            try
+            {
+                var result = await _mediator.Send(createEmployeeCommand);
+
+                if (result is null)
+                {
+                    return new CustomApiResponse(ConstantResponseMessage.FAIL, result);
+                }
+                return new CustomApiResponse(ConstantResponseMessage.SUCCESS, result);
+            }
+            catch (System.Exception ex)
+            {
+                throw new ApiException(ex.ToString(), StatusCodes.Status500InternalServerError);
+            }
+        }
     }
 }

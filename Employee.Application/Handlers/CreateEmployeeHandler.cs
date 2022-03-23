@@ -1,4 +1,5 @@
-﻿using Employee.Application.Commands;
+﻿using Employee.API.Helpers;
+using Employee.Application.Commands;
 using Employee.Application.Mappers;
 using Employee.Application.Responses;
 using Employee.Core.Repositories;
@@ -18,13 +19,27 @@ namespace Employee.Application.Handlers
 
         public async Task<EmployeeResponse> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
         {
-            var employeeEntity = EmployeeMapper.mapper.Map<Employee.Core.Entities.Employee>(request);
-            if (employeeEntity is null)
+            var employeeDto = MapperConfig.mapper.Map<CreateEmployeeCommandDto>(request);
+            if (employeeDto is null)
             {
                 throw new ApplicationException("Issue with mapper");
             }
-            var newEmployee = await _employeeRepository.AddAsync(employeeEntity);
-            var employeeResponse = EmployeeMapper.mapper.Map<EmployeeResponse>(newEmployee);
+
+            Employee.Core.Entities.Employee _employeeEntity = new Employee.Core.Entities.Employee()
+            {
+                FirstName = employeeDto.FirstName,
+                LastName = employeeDto.LastName,
+                DateOfBirth = employeeDto.DateOfBirth,
+                PhoneNumber = employeeDto.PhoneNumber,
+                Email = employeeDto.Email,
+                CreatedBy = "KIEU",
+                CreatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now),
+                UpdatedBy = "KIEU",
+                UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now)
+        };
+
+            var newEmployee = await _employeeRepository.AddAsync(_employeeEntity);
+            var employeeResponse = MapperConfig.mapper.Map<EmployeeResponse>(newEmployee);
             return employeeResponse;
         }
     }
