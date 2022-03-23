@@ -8,6 +8,7 @@ using Employee.API.Helpers;
 using Employee.Application.Commands;
 using Employee.API.GlobalConstants;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace Employee.API.Controllers
 {
@@ -17,6 +18,7 @@ namespace Employee.API.Controllers
     {
         private readonly IMediator _mediator;
         private readonly ILogger<EmployeeController> _logger;
+
         public EmployeeController(IMediator mediator, ILogger<EmployeeController> logger)
         {
             _mediator = mediator;
@@ -30,8 +32,6 @@ namespace Employee.API.Controllers
             try
             {
                 var result = await _mediator.Send(new GetAllEmployeeQuery());
-
-                _logger.LogInformation("hehehehe");
 
                 if (result.Count <= 0)
                 {

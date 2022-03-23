@@ -69,8 +69,6 @@ namespace Employee.API
                 }
             );
 
-            loggerFactory.AddLog4Net();
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
