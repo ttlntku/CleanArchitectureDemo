@@ -17,7 +17,7 @@ namespace Employee.API.Helpers
         [JsonConstructor]
         public CustomApiResponse(string message, object result, int status = StatusCodes.Status200OK)
         {
-            this.SentAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
+            this.SentAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now).ToString();
             this.Message = message;
             this.Status = status;
             this.Result = result;

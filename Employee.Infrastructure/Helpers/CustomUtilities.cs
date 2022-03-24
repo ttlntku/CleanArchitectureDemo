@@ -7,9 +7,9 @@ namespace Employee.API.Helpers
 {
     public static class CustomUtilities
     {
-        public static string CustomDatetimeConvert(DateTime dateTime, string format = "yyyy/MM/dd hh:mm:ss")
+        public static DateTime CustomDatetimeConvert(DateTime dateTime, string format = "yyyy/MM/dd hh:mm:ss")
         {
-            return dateTime.ToString(format);
+            return Convert.ToDateTime(dateTime.ToString(format));
         }
     }
 }

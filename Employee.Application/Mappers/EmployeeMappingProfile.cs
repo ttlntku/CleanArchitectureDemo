@@ -15,7 +15,7 @@ namespace Employee.Application.Mappers
         {
             //configure mapping profile for employee
             CreateMap<Employee.Core.Entities.Employee, EmployeeResponse>().ReverseMap();
-            CreateMap<Employee.Core.Entities.Employee, CreateEmployeeCommand>().ReverseMap();
+            CreateMap<CreateEmployeeCommandDto, CreateEmployeeCommand>().ReverseMap();
         }
     }
 }

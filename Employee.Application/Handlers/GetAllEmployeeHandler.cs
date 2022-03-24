@@ -24,7 +24,7 @@ namespace Employee.Application.Handlers
         public async Task<IReadOnlyList<EmployeeResponse>> Handle(GetAllEmployeeQuery request, CancellationToken cancellationToken)
         {
             List<Employee.Core.Entities.Employee> listEmployee = await _employeeRepository.GetAllAsync();
-            IReadOnlyList<EmployeeResponse> listEmployeeResponse = listEmployee.Select(le => EmployeeMapper.mapper.Map<EmployeeResponse>(le)).ToList();
+            IReadOnlyList<EmployeeResponse> listEmployeeResponse = listEmployee.Select(le => MapperConfig.mapper.Map<EmployeeResponse>(le)).ToList();
 
             return listEmployeeResponse;
         }

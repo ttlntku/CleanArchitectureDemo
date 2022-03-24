@@ -1,6 +1,7 @@
 ﻿using Employee.Application.Responses;
 using MediatR;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Employee.Application.Commands
 {

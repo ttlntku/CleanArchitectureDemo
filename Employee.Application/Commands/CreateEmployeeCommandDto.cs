@@ -1,15 +1,12 @@
-﻿using Employee.Core.Entities.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Employee.Core.Entities
+namespace Employee.Application.Commands
 {
-    public class Employee : BaseEntity
+    public class CreateEmployeeCommandDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

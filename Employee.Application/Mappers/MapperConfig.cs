@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Employee.Application.Mappers
 {
-    public class EmployeeMapper
+    public class MapperConfig
     {
         private static readonly Lazy<IMapper> lazy = new Lazy<IMapper>(() =>
         {
