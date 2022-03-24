@@ -20,6 +20,7 @@ namespace Employee.Application.Handlers
         public async Task<EmployeeResponse> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
         {
             var employeeDto = MapperConfig.mapper.Map<CreateEmployeeCommandDto>(request);
+
             if (employeeDto is null)
             {
                 throw new ApplicationException("Issue with mapper");

@@ -20,6 +20,10 @@ using AutoWrapper;
 using Idoba.API.Helper.ApiResponse;
 using Employee.Application.Validations;
 using FluentValidation;
+using FluentValidation.AspNetCore;
+using Employee.Application.Commands;
+using Employee.Application.Services;
+using Employee.Infrastructure.Services;
 
 namespace Employee.API
 {
@@ -35,23 +39,24 @@ namespace Employee.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
-            services.AddDbContextPool<MyDbContext>(m => m.UseMySql(Configuration.GetConnectionString("EmployeeDB"), ServerVersion.AutoDetect(Configuration.GetConnectionString("EmployeeDB"))));
+            //Configure validators
+                //.AddFluentValidation(fv => {
+                //    //fv.RegisterValidatorsFromAssemblyContaining<CreateEmployeeHandler>();
+                //    fv.RegisterValidatorsFromAssemblyContaining<Startup>();
+                //});
 
+            //Configure swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Employee.API", Version = "v1" });
             });
 
-            services.AddAutoMapper(typeof(Startup));
-            services.AddMediatR(typeof(GetAllEmployeeHandler).GetTypeInfo().Assembly);
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            //Configure application service
+            ApplicationServiceExtensions.AddApplicationService(services);
 
-            //validator configuration
-            services.AddValidatorsFromAssembly(typeof(Startup).Assembly);
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+            //Configure repository dependency injections
+            InfrastructureServiceExtensions.AddInfrastructureService(services, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
