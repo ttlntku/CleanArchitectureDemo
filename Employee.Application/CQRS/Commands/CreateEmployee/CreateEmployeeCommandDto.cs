@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Employee.Application.Commands
+namespace Employee.Application.CQRS.Commands.CreateEmployee
 {
-    public class CreateEmployeeCommandDto
+    internal class CreateEmployeeCommandDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -1,6 +1,5 @@
-﻿using Employee.Application.Mappers;
-using Employee.Application.Queries;
-using Employee.Application.Responses;
+﻿using Employee.Application.CQRS.Responses;
+using Employee.Application.Mappers;
 using Employee.Core.Repositories;
 using MediatR;
 using System;
@@ -10,12 +9,16 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Employee.Application.Handlers
+namespace Employee.Application.CQRS.Queries
 {
+    public class GetAllEmployeeQuery : IRequest<IReadOnlyList<EmployeeResponse>>
+    {
+    }
+
     public class GetAllEmployeeHandler : IRequestHandler<GetAllEmployeeQuery, IReadOnlyList<EmployeeResponse>>
     {
         private readonly IEmployeeRepository _employeeRepository;
-        
+
         public GetAllEmployeeHandler(IEmployeeRepository employeeRepository)
         {
             _employeeRepository = employeeRepository;

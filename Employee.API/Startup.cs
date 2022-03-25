@@ -1,27 +1,12 @@
-using Employee.Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Microsoft.EntityFrameworkCore;
-using Employee.Application.Handlers;
-using System.Reflection;
-using Employee.Core.Repositories;
-using Employee.Infrastructure.Repositories;
-using Employee.Core.Repositories.Base;
-using Employee.Infrastructure.Repositories.Base;
-using MediatR;
 using AutoWrapper;
 using Idoba.API.Helper.ApiResponse;
-using Employee.Application.Validations;
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using Employee.Application.Commands;
 using Employee.Application.Services;
 using Employee.Infrastructure.Services;
 
