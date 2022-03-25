@@ -1,4 +1,5 @@
-﻿using Employee.Core.Repositories.Base;
+﻿using Employee.Core.Entities.Base;
+using Employee.Core.Repositories.Base;
 using Employee.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Employee.Infrastructure.Repositories.Base
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : BaseEntity
     {
         protected readonly MyDbContext _employeeContext;
         public Repository(MyDbContext employeeContext)
@@ -36,13 +37,14 @@ namespace Employee.Infrastructure.Repositories.Base
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _employeeContext.Set<T>().FindAsync(id);
+            return await _employeeContext.Set<T>().FirstOrDefaultAsync(s => s.Id.Equals(id));
         }
 
-        public async Task UpdateAsync(T entity)
+        public async Task<T> UpdateAsync(T entity)
         {
             _employeeContext.Set<T>().Update(entity);
             await _employeeContext.SaveChangesAsync();
+            return entity;
         }
     }
 }

@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
-using Employee.Application.Commands;
-using Employee.Application.Responses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Employee.Application.CQRS.Commands.CreateEmployee;
+using Employee.Application.CQRS.Commands.DeleteEmployee;
+using Employee.Application.CQRS.Commands.UpdateEmployee;
+using Employee.Application.CQRS.Responses;
 
 namespace Employee.Application.Mappers
 {
@@ -15,7 +12,10 @@ namespace Employee.Application.Mappers
         {
             //configure mapping profile for employee
             CreateMap<Employee.Core.Entities.Employee, EmployeeResponse>().ReverseMap();
+
             CreateMap<CreateEmployeeCommandDto, CreateEmployeeCommand>().ReverseMap();
+            CreateMap<UpdateEmployeeCommandDto, UpdateEmployeeCommand>().ReverseMap();
+            CreateMap<DeleteEmployeeCommandDto, DeleteEmployeeCommand>().ReverseMap();
         }
     }
 }

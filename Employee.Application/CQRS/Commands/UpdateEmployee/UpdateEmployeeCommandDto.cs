@@ -1,17 +1,14 @@
-﻿using Employee.Core.Entities.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Employee.Core.Entities
+namespace Employee.Application.CQRS.Commands.UpdateEmployee
 {
-    public class Employee : BaseEntity
+    internal class UpdateEmployeeCommandDto
     {
-        public Employee() : base() { }
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
