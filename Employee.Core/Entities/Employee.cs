@@ -11,6 +11,7 @@ namespace Employee.Core.Entities
 {
     public class Employee : BaseEntity
     {
+        public Employee() : base() { }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }

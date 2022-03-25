@@ -32,15 +32,12 @@ namespace Employee.Application.Handlers
                 LastName = employeeDto.LastName,
                 DateOfBirth = employeeDto.DateOfBirth,
                 PhoneNumber = employeeDto.PhoneNumber,
-                Email = employeeDto.Email,
-                CreatedBy = "KIEU",
-                CreatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now),
-                UpdatedBy = "KIEU",
-                UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now)
-        };
+                Email = employeeDto.Email
+            };
 
             var newEmployee = await _employeeRepository.AddAsync(_employeeEntity);
             var employeeResponse = MapperConfig.mapper.Map<EmployeeResponse>(newEmployee);
+
             return employeeResponse;
         }
     }
