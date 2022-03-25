@@ -37,7 +37,7 @@ namespace Employee.API.Controllers
 
                 if (result.Count <= 0)
                 {
-                    throw new ApiException(ConstantResponseMessage.EMPTY_LIST, StatusCodes.Status404NotFound);
+                    return new CustomApiResponse(ConstantResponseMessage.EMPTY_LIST, result, StatusCodes.Status404NotFound);
                 }
 
                 return new CustomApiResponse(ConstantResponseMessage.SUCCESS, result);
