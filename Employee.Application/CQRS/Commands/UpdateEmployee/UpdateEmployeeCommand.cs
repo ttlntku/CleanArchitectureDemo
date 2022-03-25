@@ -12,7 +12,6 @@ namespace Employee.Application.CQRS.Commands.UpdateEmployee
 {
     public class UpdateEmployeeCommand : IRequest<EmployeeResponse>
     {
-
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -61,8 +60,16 @@ namespace Employee.Application.CQRS.Commands.UpdateEmployee
         {
             var employeeDto = MapperConfig.mapper.Map<UpdateEmployeeCommandDto>(request);
 
+            var toUpdateEmployee = await _employeeRepository.GetByIdAsync(employeeDto.Id);
+
+            if (toUpdateEmployee is null)
+            {
+                return null;
+            }
+
             Employee.Core.Entities.Employee _employeeEntity = new Employee.Core.Entities.Employee()
             {
+                Id = employeeDto.Id,
                 FirstName = employeeDto.FirstName,
                 LastName = employeeDto.LastName,
                 DateOfBirth = employeeDto.DateOfBirth,
