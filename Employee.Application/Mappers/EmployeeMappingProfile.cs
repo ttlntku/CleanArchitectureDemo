@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Employee.Application.CQRS.Commands.CreateEmployee;
+using Employee.Application.CQRS.Commands.DeleteEmployee;
 using Employee.Application.CQRS.Commands.UpdateEmployee;
 using Employee.Application.CQRS.Responses;
 
@@ -14,6 +15,7 @@ namespace Employee.Application.Mappers
 
             CreateMap<CreateEmployeeCommandDto, CreateEmployeeCommand>().ReverseMap();
             CreateMap<UpdateEmployeeCommandDto, UpdateEmployeeCommand>().ReverseMap();
+            CreateMap<DeleteEmployeeCommandDto, DeleteEmployeeCommand>().ReverseMap();
         }
     }
 }

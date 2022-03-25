@@ -10,6 +10,7 @@ using Employee.Application.CQRS.Queries;
 using Employee.Application.CQRS.Commands;
 using Employee.Application.CQRS.Commands.CreateEmployee;
 using Employee.Application.CQRS.Commands.UpdateEmployee;
+using Employee.Application.CQRS.Commands.DeleteEmployee;
 
 namespace Employee.API.Controllers
 {
@@ -89,5 +90,27 @@ namespace Employee.API.Controllers
                 throw new ApiException(ex.ToString(), StatusCodes.Status500InternalServerError);
             }
         }
+
+        [HttpDelete]
+        [Route("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<CustomApiResponse> Delete(int id)
+        {
+            try
+            {
+                var result = await _mediator.Send(new DeleteEmployeeCommand(id));
+
+                if (!result)
+                {
+                    return new CustomApiResponse(ConstantResponseMessage.FAIL, result);
+                }
+                return new CustomApiResponse(ConstantResponseMessage.SUCCESS, result);
+            }
+            catch (System.Exception ex)
+            {
+                throw new ApiException(ex.ToString(), StatusCodes.Status500InternalServerError);
+            }
+        }
+
     }
 }
