@@ -39,10 +39,11 @@ namespace Employee.Infrastructure.Repositories.Base
             return await _employeeContext.Set<T>().FindAsync(id);
         }
 
-        public async Task UpdateAsync(T entity)
+        public async Task<T> UpdateAsync(T entity)
         {
             _employeeContext.Set<T>().Update(entity);
             await _employeeContext.SaveChangesAsync();
+            return entity;
         }
     }
 }
