@@ -9,6 +9,10 @@ using AutoWrapper;
 using Idoba.API.Helper.ApiResponse;
 using Employee.Application.Services;
 using Employee.Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Employee.API
 {
@@ -25,20 +29,38 @@ namespace Employee.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            //Configure validators
-                //.AddFluentValidation(fv => {
-                //    //fv.RegisterValidatorsFromAssemblyContaining<CreateEmployeeHandler>();
-                //    fv.RegisterValidatorsFromAssemblyContaining<Startup>();
-                //});
 
             //Configure swagger
             services.AddSwaggerGen(c =>
             {
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    Name = "JWT Authentication",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+                    Description = "Enter your JWT Bearer token on textbox below!",
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Id = JwtBearerDefaults.AuthenticationScheme,
+                                Type = ReferenceType.SecurityScheme
+                            }
+                        }, new string[]{}
+                    }
+                });
+
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Employee.API", Version = "v1" });
             });
 
             //Configure application service
-            ApplicationServiceExtensions.AddApplicationService(services);
+            ApplicationServiceExtensions.AddApplicationService(services, Configuration);
 
             //Configure repository dependency injections
             InfrastructureServiceExtensions.AddInfrastructureService(services, Configuration);
@@ -68,6 +90,10 @@ namespace Employee.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.UseAuthorization();
 
