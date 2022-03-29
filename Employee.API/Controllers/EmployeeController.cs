@@ -11,20 +11,20 @@ using Employee.Application.CQRS.Commands;
 using Employee.Application.CQRS.Commands.CreateEmployee;
 using Employee.Application.CQRS.Commands.UpdateEmployee;
 using Employee.Application.CQRS.Commands.DeleteEmployee;
+using Employee.Application.CQRS.Commands.LoginEmployee;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Employee.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
-
     public class EmployeeController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ILogger<EmployeeController> _logger;
 
-        public EmployeeController(IMediator mediator, ILogger<EmployeeController> logger)
+        public EmployeeController(IMediator mediator)
         {
             _mediator = mediator;
-            _logger = logger;
         }
 
         [HttpGet]
@@ -58,7 +58,7 @@ namespace Employee.API.Controllers
 
                 if (result is null)
                 {
-                    return new CustomApiResponse(ConstantResponseMessage.FAIL, result);
+                    return new CustomApiResponse(ConstantResponseMessage.FAIL, result, StatusCodes.Status400BadRequest);
                 }
                 return new CustomApiResponse(ConstantResponseMessage.SUCCESS, result);
             }
@@ -81,7 +81,7 @@ namespace Employee.API.Controllers
 
                 if (result is null)
                 {
-                    return new CustomApiResponse(ConstantResponseMessage.FAIL, result);
+                    return new CustomApiResponse(ConstantResponseMessage.FAIL, result, StatusCodes.Status400BadRequest);
                 }
                 return new CustomApiResponse(ConstantResponseMessage.SUCCESS, result);
             }
@@ -102,7 +102,7 @@ namespace Employee.API.Controllers
 
                 if (!result)
                 {
-                    return new CustomApiResponse(ConstantResponseMessage.FAIL, result);
+                    return new CustomApiResponse(ConstantResponseMessage.FAIL, result, StatusCodes.Status400BadRequest);
                 }
                 return new CustomApiResponse(ConstantResponseMessage.SUCCESS, result);
             }
