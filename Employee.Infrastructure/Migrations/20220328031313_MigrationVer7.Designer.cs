@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Employee.Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220322030014_MigrationVer4")]
-    partial class MigrationVer4
+    [Migration("20220328031313_MigrationVer7")]
+    partial class MigrationVer7
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,6 +26,13 @@ namespace Employee.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime");
@@ -42,8 +49,19 @@ namespace Employee.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("char(10)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("UpdatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id")
                         .HasName("PK_Employee");
@@ -60,29 +78,44 @@ namespace Employee.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
+                            CreatedAt = new DateTime(2022, 3, 28, 10, 13, 12, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "KIEU",
                             DateOfBirth = new DateTime(1999, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "kieungothekieu@gmail.com",
                             FirstName = "Kieu",
                             LastName = "Ngo",
-                            PhoneNumber = "0965117209"
+                            Password = "kieu1",
+                            PhoneNumber = "0965117209",
+                            UpdatedAt = new DateTime(2022, 3, 28, 10, 13, 12, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = "KIEU"
                         },
                         new
                         {
                             Id = 2,
+                            CreatedAt = new DateTime(2022, 3, 28, 10, 13, 12, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "KIEU",
                             DateOfBirth = new DateTime(1999, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "williamshakespeare@gmail.com",
                             FirstName = "William",
                             LastName = "Shakespeare",
-                            PhoneNumber = "0965117209"
+                            Password = "william1",
+                            PhoneNumber = "0965117209",
+                            UpdatedAt = new DateTime(2022, 3, 28, 10, 13, 12, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = "KIEU"
                         },
                         new
                         {
                             Id = 3,
+                            CreatedAt = new DateTime(2022, 3, 28, 10, 13, 12, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "KIEU",
                             DateOfBirth = new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "louisvuitton@gmail.com",
                             FirstName = "Louis",
                             LastName = "Vuitton",
-                            PhoneNumber = "0965117209"
+                            Password = "louis1",
+                            PhoneNumber = "0965117209",
+                            UpdatedAt = new DateTime(2022, 3, 28, 10, 13, 12, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = "KIEU"
                         });
                 });
 #pragma warning restore 612, 618

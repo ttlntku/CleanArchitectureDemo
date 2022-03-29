@@ -1,4 +1,5 @@
-﻿using Employee.Application.Constants;
+﻿using Employee.API.Helpers;
+using Employee.Application.Constants;
 using Employee.Application.CQRS.Responses;
 using Employee.Application.Mappers;
 using Employee.Core.Repositories;
@@ -18,6 +19,7 @@ namespace Employee.Application.CQRS.Commands.UpdateEmployee
         public DateTime DateOfBirth { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
     }
 
     public class UpdateEmployeeCommandValidator : AbstractValidator<UpdateEmployeeCommand>
@@ -26,24 +28,6 @@ namespace Employee.Application.CQRS.Commands.UpdateEmployee
         {
             RuleFor(x => x.Id)
                 .NotEmpty().WithMessage(ConstantValidatorMessage.MESSAGE_IS_EMPTY("Id"));
-
-            RuleFor(x => x.FirstName)
-                .NotEmpty().WithMessage(ConstantValidatorMessage.MESSAGE_IS_EMPTY("First Name"))
-                .MaximumLength(50).WithMessage(ConstantValidatorMessage.MESSAGE_MAX_LENGTH_50("First Name"));
-
-            RuleFor(x => x.LastName)
-                .NotEmpty().WithMessage(ConstantValidatorMessage.MESSAGE_IS_EMPTY("Last Name"))
-                .MaximumLength(50).WithMessage(ConstantValidatorMessage.MESSAGE_MAX_LENGTH_50("Last Name"));
-
-            RuleFor(x => x.Email)
-                .NotEmpty().WithMessage(ConstantValidatorMessage.MESSAGE_IS_EMPTY("Email"))
-                .MaximumLength(50).WithMessage(ConstantValidatorMessage.MESSAGE_MAX_LENGTH_50("Email"));
-
-            RuleFor(x => x.DateOfBirth)
-                .NotEmpty().WithMessage(ConstantValidatorMessage.MESSAGE_IS_EMPTY("Date Of Birth"));
-
-            RuleFor(x => x.PhoneNumber)
-                .MaximumLength(10).WithMessage(ConstantValidatorMessage.MESSAGE_MAX_LENGTH_10("Phone Number")); ;
         }
     }
 
@@ -74,8 +58,11 @@ namespace Employee.Application.CQRS.Commands.UpdateEmployee
                 LastName = employeeDto.LastName,
                 DateOfBirth = employeeDto.DateOfBirth,
                 PhoneNumber = employeeDto.PhoneNumber,
-                Email = employeeDto.Email
-            };
+                Email = employeeDto.Email,
+                Password = employeeDto.Password,
+                UpdatedBy = "KIEU",
+                UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now)
+             };
 
             var updatedEmployee = await _employeeRepository.UpdateAsync(_employeeEntity);
             var employeeResponse = MapperConfig.mapper.Map<EmployeeResponse>(updatedEmployee);

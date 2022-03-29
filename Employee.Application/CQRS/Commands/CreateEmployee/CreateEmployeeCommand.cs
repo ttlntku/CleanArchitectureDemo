@@ -17,6 +17,7 @@ namespace Employee.Application.CQRS.Commands.CreateEmployee
         public DateTime DateOfBirth { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
     }
 
     public class CreateEmployeeCommandValidator : AbstractValidator<CreateEmployeeCommand>
@@ -39,7 +40,12 @@ namespace Employee.Application.CQRS.Commands.CreateEmployee
                 .NotEmpty().WithMessage(ConstantValidatorMessage.MESSAGE_IS_EMPTY("Date Of Birth"));
 
             RuleFor(x => x.PhoneNumber)
-                .MaximumLength(10).WithMessage(ConstantValidatorMessage.MESSAGE_MAX_LENGTH_10("Phone Number")); ;
+                .MaximumLength(10).WithMessage(ConstantValidatorMessage.MESSAGE_MAX_LENGTH_10("Phone Number"));
+
+            RuleFor(x => x.Password)
+                .NotEmpty().WithMessage(ConstantValidatorMessage.MESSAGE_IS_EMPTY("Password"))
+                .MaximumLength(50).WithMessage(ConstantValidatorMessage.MESSAGE_MAX_LENGTH_50("Password"));
+
         }
     }
 
@@ -61,7 +67,8 @@ namespace Employee.Application.CQRS.Commands.CreateEmployee
                 LastName = employeeDto.LastName,
                 DateOfBirth = employeeDto.DateOfBirth,
                 PhoneNumber = employeeDto.PhoneNumber,
-                Email = employeeDto.Email
+                Email = employeeDto.Email,
+                Password = employeeDto.Password
             };
 
             var newEmployee = await _employeeRepository.AddAsync(_employeeEntity);

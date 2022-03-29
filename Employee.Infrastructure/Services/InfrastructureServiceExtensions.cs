@@ -18,7 +18,7 @@ namespace Employee.Infrastructure.Services
     {
         public static void AddInfrastructureService(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContextPool<MyDbContext>(m =>
+            services.AddDbContextPool<DataContext>(m =>
                 m.UseMySql(configuration.GetConnectionString("EmployeeDB"),
                 ServerVersion.AutoDetect(configuration.GetConnectionString("EmployeeDB")))
             );

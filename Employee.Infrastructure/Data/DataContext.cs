@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Employee.Infrastructure.Data
 {
-    public class MyDbContext : DbContext
+    public class DataContext : DbContext
     {
-        public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         public DbSet<Employee.Core.Entities.Employee> Employees { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,6 +31,7 @@ namespace Employee.Infrastructure.Data
             modelBuilder.Entity<Employee.Core.Entities.Employee>().Property(u => u.DateOfBirth).HasColumnType("datetime");
             modelBuilder.Entity<Employee.Core.Entities.Employee>().Property(u => u.PhoneNumber).HasColumnType("char(10)");
             modelBuilder.Entity<Employee.Core.Entities.Employee>().Property(u => u.Email).HasColumnType("nvarchar(50)").IsRequired();
+            modelBuilder.Entity<Employee.Core.Entities.Employee>().Property(u => u.Password).HasColumnType("nvarchar(50)").IsRequired();
             modelBuilder.Entity<Employee.Core.Entities.Employee>().Property(u => u.CreatedBy).HasColumnType("nvarchar(50)").IsRequired();
             modelBuilder.Entity<Employee.Core.Entities.Employee>().Property(u => u.CreatedAt).HasColumnType("datetime").IsRequired();
             modelBuilder.Entity<Employee.Core.Entities.Employee>().Property(u => u.UpdatedBy).HasColumnType("nvarchar(50)").IsRequired();
@@ -46,6 +47,7 @@ namespace Employee.Infrastructure.Data
                     DateOfBirth = Convert.ToDateTime("1999/11/25 00:00:00"),
                     PhoneNumber = "0965117209",
                     Email = "kieungothekieu@gmail.com",
+                    Password = "kieu1",
                     CreatedBy = "KIEU",
                     CreatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now),
                     UpdatedBy = "KIEU",
@@ -59,6 +61,7 @@ namespace Employee.Infrastructure.Data
                     DateOfBirth = Convert.ToDateTime("1999/09/25 00:00:00"),
                     PhoneNumber = "0965117209",
                     Email = "williamshakespeare@gmail.com",
+                    Password = "william1",
                     CreatedBy = "KIEU",
                     CreatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now),
                     UpdatedBy = "KIEU",
@@ -72,6 +75,7 @@ namespace Employee.Infrastructure.Data
                     DateOfBirth = Convert.ToDateTime("1999/01/01 00:00:00"),
                     PhoneNumber = "0965117209",
                     Email = "louisvuitton@gmail.com",
+                    Password = "louis1",
                     CreatedBy = "KIEU",
                     CreatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now),
                     UpdatedBy = "KIEU",

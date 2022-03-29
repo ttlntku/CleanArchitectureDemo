@@ -12,8 +12,8 @@ namespace Employee.Infrastructure.Repositories.Base
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
-        protected readonly MyDbContext _employeeContext;
-        public Repository(MyDbContext employeeContext)
+        protected readonly DataContext _employeeContext;
+        public Repository(DataContext employeeContext)
         {
             _employeeContext = employeeContext;
         }
@@ -37,7 +37,7 @@ namespace Employee.Infrastructure.Repositories.Base
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _employeeContext.Set<T>().FirstOrDefaultAsync(s => s.Id.Equals(id));
+            return await _employeeContext.Set<T>().AsNoTracking().FirstOrDefaultAsync(s => s.Id.Equals(id));
         }
 
         public async Task<T> UpdateAsync(T entity)

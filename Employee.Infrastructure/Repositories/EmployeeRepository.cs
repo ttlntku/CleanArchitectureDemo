@@ -12,7 +12,7 @@ namespace Employee.Infrastructure.Repositories
 {
     public class EmployeeRepository : Repository<Employee.Core.Entities.Employee>, IEmployeeRepository
     {
-        public EmployeeRepository(MyDbContext employeeContext) : base(employeeContext) { }
+        public EmployeeRepository(DataContext employeeContext) : base(employeeContext) { }
 
         public async Task<IEnumerable<Core.Entities.Employee>> GetEmployeeByLastName(string lastName)
         {
