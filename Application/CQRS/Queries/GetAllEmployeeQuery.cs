@@ -7,6 +7,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Core.Entities;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace Application.CQRS.Queries
 {
@@ -25,6 +27,7 @@ namespace Application.CQRS.Queries
 
         public async Task<IReadOnlyList<EmployeeResponse>> Handle(GetAllEmployeeQuery request, CancellationToken cancellationToken)
         {
+
             List<EmployeeEntity> listEmployee = await _employeeRepository.GetAllAsync();
             IReadOnlyList<EmployeeResponse> listEmployeeResponse = listEmployee.Select(le => MapperConfig.mapper.Map<EmployeeResponse>(le)).ToList();
 

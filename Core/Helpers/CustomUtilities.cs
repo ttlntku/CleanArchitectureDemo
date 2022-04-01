@@ -11,5 +11,9 @@ namespace Core.Helpers
         {
             return Convert.ToDateTime(dateTime.ToString(format));
         }
+        public static bool IsNullDatetime(DateTime dateTime)
+        {
+            return dateTime == default(DateTime);
+        }
     }
 }

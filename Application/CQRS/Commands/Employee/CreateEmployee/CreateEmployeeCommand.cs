@@ -8,6 +8,9 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Core.Entities;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+using System.Linq;
 
 namespace Application.CQRS.Commands.Employee.CreateEmployee
 {
@@ -19,6 +22,7 @@ namespace Application.CQRS.Commands.Employee.CreateEmployee
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public Int16 Role { get; set; }
     }
 
     public class CreateEmployeeCommandValidator : AbstractValidator<CreateEmployeeCommand>
@@ -69,7 +73,8 @@ namespace Application.CQRS.Commands.Employee.CreateEmployee
                 DateOfBirth = employeeDto.DateOfBirth,
                 PhoneNumber = employeeDto.PhoneNumber,
                 Email = employeeDto.Email,
-                Password = employeeDto.Password
+                Password = employeeDto.Password,
+                Role = employeeDto.Role,
             };
 
             var newEmployee = await _employeeRepository.AddAsync(_employeeEntity);

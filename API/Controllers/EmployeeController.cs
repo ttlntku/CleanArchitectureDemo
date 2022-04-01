@@ -10,6 +10,7 @@ using Application.CQRS.Queries;
 using Application.CQRS.Commands.Employee.CreateEmployee;
 using Application.CQRS.Commands.Employee.UpdateEmployee;
 using Application.CQRS.Commands.Employee.DeleteEmployee;
+using Core.Helpers;
 
 namespace API.Controllers
 {
@@ -25,6 +26,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = EmployeeRole.ROLE_ADMIN_NAME)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<CustomApiResponse> Get()
         {
@@ -51,6 +53,7 @@ namespace API.Controllers
         {
             try
             {
+                var userName = HttpContext.User.Identity.Name;
                 var result = await _mediator.Send(createEmployeeCommand);
 
                 if (result is null)

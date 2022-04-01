@@ -15,12 +15,22 @@ namespace Core.Entities.Base
         public DateTime UpdatedAt { get; set; }
         public string UpdatedBy { get; set; }
 
+        public BaseEntity(string createdBy, string updatedBy)
+        {
+            CreatedBy = createdBy;
+            CreatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
+            UpdatedBy = updatedBy;
+            UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
+        }
+
+        public BaseEntity(string updatedBy)
+        {
+            UpdatedBy = updatedBy;
+            UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
+        }
+
         public BaseEntity()
         {
-            CreatedBy = "KIEU";
-            CreatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
-            UpdatedBy = "KIEU";
-            UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
         }
     }
 }

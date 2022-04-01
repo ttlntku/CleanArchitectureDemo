@@ -21,6 +21,8 @@ namespace Application.CQRS.Commands.Employee.UpdateEmployee
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public Int16 Role { get; set; }
+
     }
 
     public class UpdateEmployeeCommandValidator : AbstractValidator<UpdateEmployeeCommand>
@@ -52,20 +54,17 @@ namespace Application.CQRS.Commands.Employee.UpdateEmployee
                 return null;
             }
 
-            EmployeeEntity _employeeEntity = new EmployeeEntity()
-            {
-                Id = employeeDto.Id,
-                FirstName = employeeDto.FirstName,
-                LastName = employeeDto.LastName,
-                DateOfBirth = employeeDto.DateOfBirth,
-                PhoneNumber = employeeDto.PhoneNumber,
-                Email = employeeDto.Email,
-                Password = employeeDto.Password,
-                UpdatedBy = "KIEU",
-                UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now)
-            };
+            toUpdateEmployee.FirstName ??= employeeDto.FirstName;
+            toUpdateEmployee.LastName ??= employeeDto.LastName;
+            toUpdateEmployee.DateOfBirth = CustomUtilities.IsNullDatetime(employeeDto.DateOfBirth) ? toUpdateEmployee.DateOfBirth : employeeDto.DateOfBirth;
+            toUpdateEmployee.PhoneNumber ??= employeeDto.PhoneNumber;
+            toUpdateEmployee.Email ??= employeeDto.Email;
+            toUpdateEmployee.Password ??= employeeDto.Password;
+            //toUpdateEmployee.Role ??= employeeDto.Role;
+            toUpdateEmployee.UpdatedBy = "KIEU";
+            toUpdateEmployee.UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
 
-            var updatedEmployee = await _employeeRepository.UpdateAsync(_employeeEntity);
+            var updatedEmployee = await _employeeRepository.UpdateAsync(toUpdateEmployee);
             var employeeResponse = MapperConfig.mapper.Map<EmployeeResponse>(updatedEmployee);
 
             return employeeResponse;

@@ -13,6 +13,11 @@ namespace Infrastructure.Repositories
     {
         public EmployeeRepository(DataContext _dataContext) : base(_dataContext) { }
 
+        public async Task<EmployeeEntity> GetEmployeeByEmailAndPassword(string email, string password)
+        {
+            return await _dataContext.Employees.Where(m => m.Email == email && m.Password == password).FirstOrDefaultAsync();
+        }
+
         public async Task<IEnumerable<EmployeeEntity>> GetEmployeeByLastName(string lastName)
         {
             return await _dataContext.Employees.Where(m => m.LastName == lastName).ToListAsync();

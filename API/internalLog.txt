@@ -1122,3 +1122,331 @@
 2022-03-30 15:44:43.0604 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
 2022-03-30 15:44:46.8449 Info AppDomain Shutting down. Logger closing...
 2022-03-30 15:44:46.8600 Info Logger has been shut down.
+2022-03-31 09:24:29.1790 Info Message Template Auto Format enabled
+2022-03-31 09:24:29.1932 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 09:24:29.2664 Info Adding target FileTarget(Name=alldata)
+2022-03-31 09:24:29.2776 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 09:24:29.2776 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 09:24:29.3055 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 09:24:29.3204 Info Configuration initialized.
+2022-03-31 09:24:29.3204 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 09:24:30.3375 Info AppDomain Shutting down. Logger closing...
+2022-03-31 09:24:30.3492 Info Logger has been shut down.
+2022-03-31 09:24:36.4356 Info Message Template Auto Format enabled
+2022-03-31 09:24:36.4356 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 09:24:36.4917 Info Adding target FileTarget(Name=alldata)
+2022-03-31 09:24:36.5023 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 09:24:36.5023 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 09:24:36.5239 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 09:24:36.5395 Info Configuration initialized.
+2022-03-31 09:24:36.5395 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 09:24:37.5397 Info AppDomain Shutting down. Logger closing...
+2022-03-31 09:24:37.5529 Info Logger has been shut down.
+2022-03-31 09:24:44.2092 Info Message Template Auto Format enabled
+2022-03-31 09:24:44.2092 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 09:24:44.2590 Info Adding target FileTarget(Name=alldata)
+2022-03-31 09:24:44.2715 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 09:24:44.2815 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 09:24:44.2935 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 09:24:44.3106 Info Configuration initialized.
+2022-03-31 09:24:44.3106 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 09:24:45.3758 Info AppDomain Shutting down. Logger closing...
+2022-03-31 09:24:45.3911 Info Logger has been shut down.
+2022-03-31 09:26:09.8037 Info Message Template Auto Format enabled
+2022-03-31 09:26:09.8089 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 09:26:09.8535 Info Adding target FileTarget(Name=alldata)
+2022-03-31 09:26:09.8589 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 09:26:09.8589 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 09:26:09.8791 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 09:26:09.8909 Info Configuration initialized.
+2022-03-31 09:26:09.8909 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 09:26:11.0713 Info AppDomain Shutting down. Logger closing...
+2022-03-31 09:26:11.0840 Info Logger has been shut down.
+2022-03-31 09:36:43.9810 Info Message Template Auto Format enabled
+2022-03-31 09:36:44.0145 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 09:36:44.0494 Info Adding target FileTarget(Name=alldata)
+2022-03-31 09:36:44.0591 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 09:36:44.0591 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 09:36:44.0805 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 09:36:44.0967 Info Configuration initialized.
+2022-03-31 09:36:44.0967 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 10:02:23.5183 Info Message Template Auto Format enabled
+2022-03-31 10:02:23.7567 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 10:02:23.8233 Info Adding target FileTarget(Name=alldata)
+2022-03-31 10:02:23.8338 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 10:02:23.8563 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 10:02:23.9052 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 10:02:23.9399 Info Configuration initialized.
+2022-03-31 10:02:23.9399 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 13:28:58.4013 Info Message Template Auto Format enabled
+2022-03-31 13:28:58.5002 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 13:28:58.5626 Info Adding target FileTarget(Name=alldata)
+2022-03-31 13:28:58.5731 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 13:28:58.5877 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 13:28:58.6066 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 13:28:58.6246 Info Configuration initialized.
+2022-03-31 13:28:58.6246 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 13:42:37.6274 Info Message Template Auto Format enabled
+2022-03-31 13:42:37.7498 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 13:42:37.8051 Info Adding target FileTarget(Name=alldata)
+2022-03-31 13:42:37.8051 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 13:42:37.8285 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 13:42:37.8470 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 13:42:37.8617 Info Configuration initialized.
+2022-03-31 13:42:37.8617 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 13:46:03.6066 Info Message Template Auto Format enabled
+2022-03-31 13:46:03.6402 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 13:46:03.6909 Info Adding target FileTarget(Name=alldata)
+2022-03-31 13:46:03.7002 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 13:46:03.7131 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 13:46:03.7422 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 13:46:03.7628 Info Configuration initialized.
+2022-03-31 13:46:03.7628 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 13:56:31.5945 Info Message Template Auto Format enabled
+2022-03-31 13:56:31.6023 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 13:56:31.6489 Info Adding target FileTarget(Name=alldata)
+2022-03-31 13:56:31.6489 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 13:56:31.6646 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 13:56:31.6646 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 13:56:31.6891 Info Configuration initialized.
+2022-03-31 13:56:31.6891 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 13:56:32.7268 Info AppDomain Shutting down. Logger closing...
+2022-03-31 13:56:32.7268 Info Logger has been shut down.
+2022-03-31 13:56:40.2425 Info Message Template Auto Format enabled
+2022-03-31 13:56:40.2425 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 13:56:40.2878 Info Adding target FileTarget(Name=alldata)
+2022-03-31 13:56:40.2939 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 13:56:40.2939 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 13:56:40.3146 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 13:56:40.3254 Info Configuration initialized.
+2022-03-31 13:56:40.3254 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 13:56:41.2453 Info AppDomain Shutting down. Logger closing...
+2022-03-31 13:56:41.2453 Info Logger has been shut down.
+2022-03-31 16:09:53.3950 Info Message Template Auto Format enabled
+2022-03-31 16:09:53.4636 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 16:09:53.5261 Info Adding target FileTarget(Name=alldata)
+2022-03-31 16:09:53.5432 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 16:09:53.5432 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 16:09:53.5736 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 16:09:53.5976 Info Configuration initialized.
+2022-03-31 16:09:53.5976 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 16:12:28.9979 Info Message Template Auto Format enabled
+2022-03-31 16:12:28.9979 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 16:12:29.0500 Info Adding target FileTarget(Name=alldata)
+2022-03-31 16:12:29.0550 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 16:12:29.0550 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 16:12:29.0747 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 16:12:29.0861 Info Configuration initialized.
+2022-03-31 16:12:29.0861 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 16:12:29.8928 Info AppDomain Shutting down. Logger closing...
+2022-03-31 16:12:29.9053 Info Logger has been shut down.
+2022-03-31 16:12:38.5683 Info Message Template Auto Format enabled
+2022-03-31 16:12:38.5796 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 16:12:38.6484 Info Adding target FileTarget(Name=alldata)
+2022-03-31 16:12:38.6484 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 16:12:38.6739 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 16:12:38.6974 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 16:12:38.7119 Info Configuration initialized.
+2022-03-31 16:12:38.7119 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 16:12:39.9455 Info AppDomain Shutting down. Logger closing...
+2022-03-31 16:12:39.9455 Info Logger has been shut down.
+2022-03-31 16:14:14.5343 Info Message Template Auto Format enabled
+2022-03-31 16:14:14.6575 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 16:14:14.8367 Info Adding target FileTarget(Name=alldata)
+2022-03-31 16:14:14.8562 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 16:14:14.8562 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 16:14:14.8845 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 16:14:14.9028 Info Configuration initialized.
+2022-03-31 16:14:14.9028 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 16:14:54.2674 Info Message Template Auto Format enabled
+2022-03-31 16:14:54.2674 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 16:14:54.3230 Info Adding target FileTarget(Name=alldata)
+2022-03-31 16:14:54.3230 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 16:14:54.3434 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 16:14:54.3553 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 16:14:54.3553 Info Configuration initialized.
+2022-03-31 16:14:54.3553 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 16:14:55.5049 Info AppDomain Shutting down. Logger closing...
+2022-03-31 16:14:55.5152 Info Logger has been shut down.
+2022-03-31 16:15:17.4613 Info Message Template Auto Format enabled
+2022-03-31 16:15:17.4613 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 16:15:17.5100 Info Adding target FileTarget(Name=alldata)
+2022-03-31 16:15:17.5100 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 16:15:17.5294 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 16:15:17.5415 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 16:15:17.5415 Info Configuration initialized.
+2022-03-31 16:15:17.5415 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 16:15:18.5460 Info AppDomain Shutting down. Logger closing...
+2022-03-31 16:15:18.5634 Info Logger has been shut down.
+2022-03-31 16:15:35.4365 Info Message Template Auto Format enabled
+2022-03-31 16:15:35.4755 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 16:15:35.6825 Info Adding target FileTarget(Name=alldata)
+2022-03-31 16:15:35.6977 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 16:15:35.7180 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 16:15:35.7473 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 16:15:35.7993 Info Configuration initialized.
+2022-03-31 16:15:35.7993 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 16:38:52.3185 Info Message Template Auto Format enabled
+2022-03-31 16:38:52.3615 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 16:38:52.4113 Info Adding target FileTarget(Name=alldata)
+2022-03-31 16:38:52.4210 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 16:38:52.4348 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 16:38:52.4524 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 16:38:52.4792 Info Configuration initialized.
+2022-03-31 16:38:52.4792 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 16:39:08.6869 Info Message Template Auto Format enabled
+2022-03-31 16:39:08.7228 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 16:39:08.7983 Info Adding target FileTarget(Name=alldata)
+2022-03-31 16:39:08.8133 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 16:39:08.8334 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 16:39:08.8525 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 16:39:08.8686 Info Configuration initialized.
+2022-03-31 16:39:08.8686 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 16:39:25.6156 Info Message Template Auto Format enabled
+2022-03-31 16:39:25.6421 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 16:39:25.6929 Info Adding target FileTarget(Name=alldata)
+2022-03-31 16:39:25.7009 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 16:39:25.7145 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 16:39:25.7326 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 16:39:25.7480 Info Configuration initialized.
+2022-03-31 16:39:25.7480 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 16:42:04.8835 Info Message Template Auto Format enabled
+2022-03-31 16:42:04.9590 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 16:42:05.0598 Info Adding target FileTarget(Name=alldata)
+2022-03-31 16:42:05.0740 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 16:42:05.0740 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 16:42:05.1140 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 16:42:05.1373 Info Configuration initialized.
+2022-03-31 16:42:05.1373 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 17:08:56.7267 Info Message Template Auto Format enabled
+2022-03-31 17:08:56.7659 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 17:08:56.8389 Info Adding target FileTarget(Name=alldata)
+2022-03-31 17:08:56.8561 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 17:08:56.8717 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 17:08:56.8980 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 17:08:56.9377 Info Configuration initialized.
+2022-03-31 17:08:56.9377 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 17:12:15.4590 Info Message Template Auto Format enabled
+2022-03-31 17:12:15.4884 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 17:12:15.5480 Info Adding target FileTarget(Name=alldata)
+2022-03-31 17:12:15.5612 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 17:12:15.5776 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 17:12:15.6088 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 17:12:15.6281 Info Configuration initialized.
+2022-03-31 17:12:15.6281 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-03-31 17:19:01.0040 Info Message Template Auto Format enabled
+2022-03-31 17:19:01.0571 Info Loading assembly: NLog.Web.AspNetCore
+2022-03-31 17:19:01.1940 Info Adding target FileTarget(Name=alldata)
+2022-03-31 17:19:01.2116 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-03-31 17:19:01.2116 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-03-31 17:19:01.2424 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-03-31 17:19:01.2641 Info Configuration initialized.
+2022-03-31 17:19:01.2641 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-04-01 11:30:05.5135 Info Message Template Auto Format enabled
+2022-04-01 11:30:05.5517 Info Loading assembly: NLog.Web.AspNetCore
+2022-04-01 11:30:05.5932 Info Adding target FileTarget(Name=alldata)
+2022-04-01 11:30:05.5932 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-04-01 11:30:05.6122 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-04-01 11:30:05.6279 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-04-01 11:30:05.6404 Info Configuration initialized.
+2022-04-01 11:30:05.6404 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-04-01 11:30:23.4652 Info Message Template Auto Format enabled
+2022-04-01 11:30:23.4856 Info Loading assembly: NLog.Web.AspNetCore
+2022-04-01 11:30:23.5499 Info Adding target FileTarget(Name=alldata)
+2022-04-01 11:30:23.5591 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-04-01 11:30:23.5726 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-04-01 11:30:23.5726 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-04-01 11:30:23.6019 Info Configuration initialized.
+2022-04-01 11:30:23.6019 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-04-01 11:30:24.9869 Info AppDomain Shutting down. Logger closing...
+2022-04-01 11:30:24.9993 Info Logger has been shut down.
+2022-04-01 11:30:36.3910 Info Message Template Auto Format enabled
+2022-04-01 11:30:36.4078 Info Loading assembly: NLog.Web.AspNetCore
+2022-04-01 11:30:36.4633 Info Adding target FileTarget(Name=alldata)
+2022-04-01 11:30:36.4633 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-04-01 11:30:36.4788 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-04-01 11:30:36.4788 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-04-01 11:30:36.5047 Info Configuration initialized.
+2022-04-01 11:30:36.5047 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-04-01 11:30:37.6618 Info AppDomain Shutting down. Logger closing...
+2022-04-01 11:30:37.6740 Info Logger has been shut down.
+2022-04-01 13:51:41.6542 Info Message Template Auto Format enabled
+2022-04-01 13:51:41.6666 Info Loading assembly: NLog.Web.AspNetCore
+2022-04-01 13:51:41.6977 Info Adding target FileTarget(Name=alldata)
+2022-04-01 13:51:41.6977 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-04-01 13:51:41.6977 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-04-01 13:51:41.7263 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-04-01 13:51:41.7411 Info Configuration initialized.
+2022-04-01 13:51:41.7411 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-04-01 13:54:30.4708 Info Message Template Auto Format enabled
+2022-04-01 13:54:30.6684 Info Loading assembly: NLog.Web.AspNetCore
+2022-04-01 13:54:30.8045 Info Adding target FileTarget(Name=alldata)
+2022-04-01 13:54:30.8227 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-04-01 13:54:30.8465 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-04-01 13:54:30.9286 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-04-01 13:54:30.9505 Info Configuration initialized.
+2022-04-01 13:54:30.9505 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-04-01 13:58:32.8518 Info Message Template Auto Format enabled
+2022-04-01 13:58:32.8673 Info Loading assembly: NLog.Web.AspNetCore
+2022-04-01 13:58:32.9124 Info Adding target FileTarget(Name=alldata)
+2022-04-01 13:58:32.9602 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-04-01 13:58:32.9759 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-04-01 13:58:33.1375 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-04-01 13:58:33.1832 Info Configuration initialized.
+2022-04-01 13:58:33.1832 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-04-01 14:06:41.8936 Info Message Template Auto Format enabled
+2022-04-01 14:06:41.9276 Info Loading assembly: NLog.Web.AspNetCore
+2022-04-01 14:06:41.9833 Info Adding target FileTarget(Name=alldata)
+2022-04-01 14:06:41.9944 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-04-01 14:06:41.9944 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-04-01 14:06:42.0596 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-04-01 14:06:42.0896 Info Configuration initialized.
+2022-04-01 14:06:42.0896 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-04-01 14:09:30.7995 Info Message Template Auto Format enabled
+2022-04-01 14:09:30.8193 Info Loading assembly: NLog.Web.AspNetCore
+2022-04-01 14:09:30.8565 Info Adding target FileTarget(Name=alldata)
+2022-04-01 14:09:30.8714 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-04-01 14:09:30.8714 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-04-01 14:09:30.8973 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-04-01 14:09:30.9117 Info Configuration initialized.
+2022-04-01 14:09:30.9117 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-04-01 16:49:19.1941 Info Message Template Auto Format enabled
+2022-04-01 16:49:19.2285 Info Loading assembly: NLog.Web.AspNetCore
+2022-04-01 16:49:19.2748 Info Adding target FileTarget(Name=alldata)
+2022-04-01 16:49:19.2882 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-04-01 16:49:19.2882 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-04-01 16:49:19.3097 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-04-01 16:49:19.3225 Info Configuration initialized.
+2022-04-01 16:49:19.3225 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-04-01 16:51:03.4748 Info Message Template Auto Format enabled
+2022-04-01 16:51:03.5058 Info Loading assembly: NLog.Web.AspNetCore
+2022-04-01 16:51:03.5539 Info Adding target FileTarget(Name=alldata)
+2022-04-01 16:51:03.5539 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-04-01 16:51:03.5721 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-04-01 16:51:03.5881 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-04-01 16:51:03.6036 Info Configuration initialized.
+2022-04-01 16:51:03.6036 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-04-01 16:51:39.4908 Info Message Template Auto Format enabled
+2022-04-01 16:51:39.5741 Info Loading assembly: NLog.Web.AspNetCore
+2022-04-01 16:51:39.7151 Info Adding target FileTarget(Name=alldata)
+2022-04-01 16:51:39.7311 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-04-01 16:51:39.7605 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-04-01 16:51:39.7857 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-04-01 16:51:39.8059 Info Configuration initialized.
+2022-04-01 16:51:39.8059 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-04-01 16:58:02.1074 Info Message Template Auto Format enabled
+2022-04-01 16:58:02.1267 Info Loading assembly: NLog.Web.AspNetCore
+2022-04-01 16:58:02.1959 Info Adding target FileTarget(Name=alldata)
+2022-04-01 16:58:02.2106 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-04-01 16:58:02.2106 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-04-01 16:58:02.2684 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-04-01 16:58:02.2922 Info Configuration initialized.
+2022-04-01 16:58:02.2922 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
+2022-04-01 17:00:19.3543 Info Message Template Auto Format enabled
+2022-04-01 17:00:19.4392 Info Loading assembly: NLog.Web.AspNetCore
+2022-04-01 17:00:19.4806 Info Adding target FileTarget(Name=alldata)
+2022-04-01 17:00:19.4947 Info Adding target ColoredConsoleTarget(Name=coloredConsole)
+2022-04-01 17:00:19.4947 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+2022-04-01 17:00:19.5280 Info Validating config: TargetNames=alldata, coloredConsole, ConfigItems=44, FilePath=K:\ChoiChoi\EmployeeManagementCleanArchitecture\CleanArchitectureDemo\API\bin\Debug\net5.0\NLog.config
+2022-04-01 17:00:19.5497 Info Configuration initialized.
+2022-04-01 17:00:19.5497 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.14.740. Product version: 4.7.14+7b0baf946c6c5541cbd0dc523d2e9e7a582209ba. GlobalAssemblyCache: False
