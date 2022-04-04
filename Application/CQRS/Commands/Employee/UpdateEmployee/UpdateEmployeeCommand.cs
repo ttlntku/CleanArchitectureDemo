@@ -1,4 +1,4 @@
-﻿using Application.Constants;
+using Application.Constants;
 using Application.CQRS.Responses;
 using Core.Helpers;
 using Core.Repositories;
@@ -9,6 +9,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Core.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace Application.CQRS.Commands.Employee.UpdateEmployee
 {
@@ -37,15 +38,18 @@ namespace Application.CQRS.Commands.Employee.UpdateEmployee
     public class UpdateEmployeeHandler : IRequestHandler<UpdateEmployeeCommand, EmployeeResponse>
     {
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UpdateEmployeeHandler(IEmployeeRepository employeeRepository)
+        public UpdateEmployeeHandler(IEmployeeRepository employeeRepository, IHttpContextAccessor httpContextAccessor)
         {
             _employeeRepository = employeeRepository;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<EmployeeResponse> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
         {
             var employeeDto = MapperConfig.mapper.Map<UpdateEmployeeCommandDto>(request);
+            var loginName = _httpContextAccessor.HttpContext.User.Identity.Name;
 
             var toUpdateEmployee = await _employeeRepository.GetByIdAsync(employeeDto.Id);
 
@@ -64,7 +68,7 @@ namespace Application.CQRS.Commands.Employee.UpdateEmployee
             toUpdateEmployee.UpdatedBy = "KIEU";
             toUpdateEmployee.UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
 
-            var updatedEmployee = await _employeeRepository.UpdateAsync(toUpdateEmployee);
+            var updatedEmployee = await _employeeRepository.UpdateAsync(toUpdateEmployee, loginName);
             var employeeResponse = MapperConfig.mapper.Map<EmployeeResponse>(updatedEmployee);
 
             return employeeResponse;

@@ -5,9 +5,6 @@ namespace Core.Entities
 {
     public class EmployeeEntity : BaseEntity
     {
-        public EmployeeEntity(string createdBy, string updatedBy) : base(createdBy, updatedBy) { }
-        public EmployeeEntity(string updatedBy) : base(updatedBy) { }
-        public EmployeeEntity() : base() { }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
