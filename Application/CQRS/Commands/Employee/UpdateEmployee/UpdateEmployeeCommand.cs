@@ -1,4 +1,4 @@
-using Application.Constants;
+﻿using Application.Constants;
 using Application.CQRS.Responses;
 using Core.Helpers;
 using Core.Repositories;
@@ -58,15 +58,13 @@ namespace Application.CQRS.Commands.Employee.UpdateEmployee
                 return null;
             }
 
-            toUpdateEmployee.FirstName ??= employeeDto.FirstName;
-            toUpdateEmployee.LastName ??= employeeDto.LastName;
-            toUpdateEmployee.DateOfBirth = CustomUtilities.IsNullDatetime(employeeDto.DateOfBirth) ? toUpdateEmployee.DateOfBirth : employeeDto.DateOfBirth;
-            toUpdateEmployee.PhoneNumber ??= employeeDto.PhoneNumber;
-            toUpdateEmployee.Email ??= employeeDto.Email;
-            toUpdateEmployee.Password ??= employeeDto.Password;
-            //toUpdateEmployee.Role ??= employeeDto.Role;
-            toUpdateEmployee.UpdatedBy = "KIEU";
-            toUpdateEmployee.UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
+            toUpdateEmployee.FirstName = CustomUtilities.IsNullOrSecondValue<string>(employeeDto.FirstName, toUpdateEmployee.FirstName);
+            toUpdateEmployee.LastName = CustomUtilities.IsNullOrSecondValue<string>(employeeDto.LastName, toUpdateEmployee.LastName);
+            toUpdateEmployee.DateOfBirth = CustomUtilities.IsNullOrSecondValue<DateTime>(employeeDto.DateOfBirth, toUpdateEmployee.DateOfBirth);
+            toUpdateEmployee.PhoneNumber = CustomUtilities.IsNullOrSecondValue<string>(employeeDto.PhoneNumber, toUpdateEmployee.PhoneNumber);
+            toUpdateEmployee.Email = CustomUtilities.IsNullOrSecondValue<string>(employeeDto.Email, toUpdateEmployee.Email);
+            toUpdateEmployee.Password = CustomUtilities.IsNullOrSecondValue<string>(employeeDto.Password, toUpdateEmployee.Password);
+            toUpdateEmployee.Role = CustomUtilities.IsNullOrSecondValue<Int16>(employeeDto.Role, toUpdateEmployee.Role);
 
             var updatedEmployee = await _employeeRepository.UpdateAsync(toUpdateEmployee, loginName);
             var employeeResponse = MapperConfig.mapper.Map<EmployeeResponse>(updatedEmployee);

@@ -11,9 +11,14 @@ namespace Core.Helpers
         {
             return Convert.ToDateTime(dateTime.ToString(format));
         }
-        public static bool IsNullDatetime(DateTime dateTime)
+
+        public static T IsNullOrSecondValue<T>(T firstValue, T secondValue)
         {
-            return dateTime == default(DateTime);
+            if (!EqualityComparer<T>.Default.Equals(firstValue, default(T)))
+            {
+                return firstValue;
+            }
+            return secondValue;
         }
     }
 }
