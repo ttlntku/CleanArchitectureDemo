@@ -1,5 +1,6 @@
 ﻿using Application.CQRS.Commands.Login;
 using Application.Services.PersistenceFactoryService;
+using Core.Helpers;
 using Core.Repositories;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -22,22 +23,23 @@ namespace Application.Services.JWTClientService
         }
         public async Task<TokenDto> Authenticate(LoginCommandDto employee)
         {
-            var listEmployee = await _employeeRepository.GetAllAsync();
+            var employeeEntity = await _employeeRepository.GetEmployeeByEmailAndPassword(employee.Email, employee.Password);
 
-            if (!listEmployee.Any(
-                x => x.Email.Equals(employee.Email) &&
-                x.Password.Equals(employee.Password)))
+            if (employeeEntity is null)
             {
                 return null;
             }
+
+            var scope = EmployeeRole.RoleMapper.Where(s => s.Key.Equals(employeeEntity.Role)).Select(s => s.Value).FirstOrDefault();
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenKey = Encoding.UTF8.GetBytes(_persistenceFactory.GetJWTConfig().GetJWTConfig().Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[] {
-                       new Claim(ClaimTypes.Name, employee.Email)
-
+                       new Claim(ClaimTypes.Name, employeeEntity.FirstName),
+                       new Claim(ClaimTypes.Email, employeeEntity.Email),
+                       new Claim(ClaimTypes.Role, scope),
                 }),
                 Expires = DateTime.UtcNow.AddDays(30),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
@@ -45,7 +47,7 @@ namespace Application.Services.JWTClientService
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return new TokenDto { Token = tokenHandler.WriteToken(token)};
+            return new TokenDto { Token = tokenHandler.WriteToken(token) };
         }
     }
 }

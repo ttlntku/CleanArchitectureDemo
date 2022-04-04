@@ -14,13 +14,5 @@ namespace Core.Entities.Base
         public string CreatedBy { get; set; }
         public DateTime UpdatedAt { get; set; }
         public string UpdatedBy { get; set; }
-
-        public BaseEntity()
-        {
-            CreatedBy = "KIEU";
-            CreatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
-            UpdatedBy = "KIEU";
-            UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
-        }
     }
 }

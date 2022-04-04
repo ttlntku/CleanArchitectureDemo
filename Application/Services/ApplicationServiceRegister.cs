@@ -2,12 +2,14 @@
 using Application.Services.JWTClientService;
 using Application.Services.PersistenceFactoryService;
 using Application.Validations;
+using Core.Helpers;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Reflection;
 using System.Text;
 
@@ -52,6 +54,13 @@ namespace Application.Services
                     ValidAudience = configuration["SSO:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(key)
                 };
+            });
+
+            //Add authorization
+            services.AddAuthorization(o =>
+            {
+                o.AddPolicy(EmployeeRole.ROLE_USER_NAME, p => p.RequireClaim("scope", $"[{EmployeeRole.ROLE_USER_NAME}]"));
+                o.AddPolicy(EmployeeRole.ROLE_ADMIN_NAME, p => p.RequireClaim("scope", $"[{EmployeeRole.ROLE_ADMIN_NAME}]"));
             });
 
             services.AddTransient<IJWTClient, JWTClient>();

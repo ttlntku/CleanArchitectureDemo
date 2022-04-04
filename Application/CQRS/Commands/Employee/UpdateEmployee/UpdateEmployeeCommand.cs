@@ -9,6 +9,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Core.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace Application.CQRS.Commands.Employee.UpdateEmployee
 {
@@ -21,6 +22,8 @@ namespace Application.CQRS.Commands.Employee.UpdateEmployee
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public Int16 Role { get; set; }
+
     }
 
     public class UpdateEmployeeCommandValidator : AbstractValidator<UpdateEmployeeCommand>
@@ -35,15 +38,18 @@ namespace Application.CQRS.Commands.Employee.UpdateEmployee
     public class UpdateEmployeeHandler : IRequestHandler<UpdateEmployeeCommand, EmployeeResponse>
     {
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UpdateEmployeeHandler(IEmployeeRepository employeeRepository)
+        public UpdateEmployeeHandler(IEmployeeRepository employeeRepository, IHttpContextAccessor httpContextAccessor)
         {
             _employeeRepository = employeeRepository;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<EmployeeResponse> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
         {
             var employeeDto = MapperConfig.mapper.Map<UpdateEmployeeCommandDto>(request);
+            var loginName = _httpContextAccessor.HttpContext.User.Identity.Name;
 
             var toUpdateEmployee = await _employeeRepository.GetByIdAsync(employeeDto.Id);
 
@@ -52,20 +58,15 @@ namespace Application.CQRS.Commands.Employee.UpdateEmployee
                 return null;
             }
 
-            EmployeeEntity _employeeEntity = new EmployeeEntity()
-            {
-                Id = employeeDto.Id,
-                FirstName = employeeDto.FirstName,
-                LastName = employeeDto.LastName,
-                DateOfBirth = employeeDto.DateOfBirth,
-                PhoneNumber = employeeDto.PhoneNumber,
-                Email = employeeDto.Email,
-                Password = employeeDto.Password,
-                UpdatedBy = "KIEU",
-                UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now)
-            };
+            toUpdateEmployee.FirstName = CustomUtilities.IsNullOrSecondValue<string>(employeeDto.FirstName, toUpdateEmployee.FirstName);
+            toUpdateEmployee.LastName = CustomUtilities.IsNullOrSecondValue<string>(employeeDto.LastName, toUpdateEmployee.LastName);
+            toUpdateEmployee.DateOfBirth = CustomUtilities.IsNullOrSecondValue<DateTime>(employeeDto.DateOfBirth, toUpdateEmployee.DateOfBirth);
+            toUpdateEmployee.PhoneNumber = CustomUtilities.IsNullOrSecondValue<string>(employeeDto.PhoneNumber, toUpdateEmployee.PhoneNumber);
+            toUpdateEmployee.Email = CustomUtilities.IsNullOrSecondValue<string>(employeeDto.Email, toUpdateEmployee.Email);
+            toUpdateEmployee.Password = CustomUtilities.IsNullOrSecondValue<string>(employeeDto.Password, toUpdateEmployee.Password);
+            toUpdateEmployee.Role = CustomUtilities.IsNullOrSecondValue<Int16>(employeeDto.Role, toUpdateEmployee.Role);
 
-            var updatedEmployee = await _employeeRepository.UpdateAsync(_employeeEntity);
+            var updatedEmployee = await _employeeRepository.UpdateAsync(toUpdateEmployee, loginName);
             var employeeResponse = MapperConfig.mapper.Map<EmployeeResponse>(updatedEmployee);
 
             return employeeResponse;

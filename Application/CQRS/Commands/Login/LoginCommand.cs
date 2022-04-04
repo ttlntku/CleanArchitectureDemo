@@ -45,7 +45,6 @@ namespace Application.CQRS.Commands.Login
                 try
                 {
                     var loginDto = MapperConfig.mapper.Map<LoginCommandDto>(request);
-
                     var tokenDto = await _jwtClient.Authenticate(loginDto);
 
                     return tokenDto;

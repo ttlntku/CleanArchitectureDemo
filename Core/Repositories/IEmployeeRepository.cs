@@ -8,5 +8,6 @@ namespace Core.Repositories
     public interface IEmployeeRepository: IRepository<EmployeeEntity>
     {
         Task<IEnumerable<EmployeeEntity>> GetEmployeeByLastName(string lastName);
+        Task<EmployeeEntity> GetEmployeeByEmailAndPassword(string email, string password);
     }
 }

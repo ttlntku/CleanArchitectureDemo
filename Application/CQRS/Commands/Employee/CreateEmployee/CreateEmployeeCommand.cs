@@ -8,6 +8,9 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Core.Entities;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+using System.Linq;
 
 namespace Application.CQRS.Commands.Employee.CreateEmployee
 {
@@ -19,6 +22,7 @@ namespace Application.CQRS.Commands.Employee.CreateEmployee
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public Int16 Role { get; set; }
     }
 
     public class CreateEmployeeCommandValidator : AbstractValidator<CreateEmployeeCommand>
@@ -53,14 +57,17 @@ namespace Application.CQRS.Commands.Employee.CreateEmployee
     public class CreateEmployeeHandler : IRequestHandler<CreateEmployeeCommand, EmployeeResponse>
     {
         private readonly IEmployeeRepository _employeeRepository;
-        public CreateEmployeeHandler(IEmployeeRepository employeeRepository)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public CreateEmployeeHandler(IEmployeeRepository employeeRepository, IHttpContextAccessor httpContextAccessor)
         {
             _employeeRepository = employeeRepository;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<EmployeeResponse> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
         {
             var employeeDto = MapperConfig.mapper.Map<CreateEmployeeCommandDto>(request);
+            var loginName = _httpContextAccessor.HttpContext.User.Identity.Name;
 
             EmployeeEntity _employeeEntity = new EmployeeEntity()
             {
@@ -69,10 +76,11 @@ namespace Application.CQRS.Commands.Employee.CreateEmployee
                 DateOfBirth = employeeDto.DateOfBirth,
                 PhoneNumber = employeeDto.PhoneNumber,
                 Email = employeeDto.Email,
-                Password = employeeDto.Password
+                Password = employeeDto.Password,
+                Role = employeeDto.Role,
             };
 
-            var newEmployee = await _employeeRepository.AddAsync(_employeeEntity);
+            var newEmployee = await _employeeRepository.AddAsync(_employeeEntity, loginName, loginName);
             var employeeResponse = MapperConfig.mapper.Map<EmployeeResponse>(newEmployee);
 
             return employeeResponse;
