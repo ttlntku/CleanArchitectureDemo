@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Core.Entities;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using Application.Delegates;
+using System.Text.Json;
 
 namespace Application.CQRS.Queries
 {
@@ -30,6 +32,11 @@ namespace Application.CQRS.Queries
 
             List<EmployeeEntity> listEmployee = await _employeeRepository.GetAllAsync();
             IReadOnlyList<EmployeeResponse> listEmployeeResponse = listEmployee.Select(le => MapperConfig.mapper.Map<EmployeeResponse>(le)).ToList();
+
+            PrintDelegate.print<List<EmployeeEntity>> printDelegate = new PrintDelegate.print<List<EmployeeEntity>>(PrintDelegate.ExportToJson);
+            printDelegate(listEmployee);
+            PrintDelegate.print<List<EmployeeEntity>> printDelegate2 = new PrintDelegate.print<List<EmployeeEntity>>(PrintDelegate.ExportToXlsx);
+            printDelegate2(listEmployee);
 
             return listEmployeeResponse;
         }
