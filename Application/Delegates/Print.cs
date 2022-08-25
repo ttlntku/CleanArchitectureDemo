@@ -1,22 +1,17 @@
-﻿using ClosedXML.Excel;
-using Core.Entities;
-using System;
+﻿using OfficeOpenXml;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace Application.Delegates
 {
     public static class PrintDelegate
     {
-        public delegate MemoryStream print<T>(T obj);
+        public delegate MemoryStream print<T>(List<T> obj);
 
-        public static DataTable ToDataTable<T>(this IList<T> data)
+        public static DataTable ToDataTable<T>(this List<T> data)
         {
             PropertyDescriptorCollection props =
             TypeDescriptor.GetProperties(typeof(T));
@@ -38,31 +33,46 @@ namespace Application.Delegates
             return table;
         }
 
-        public static MemoryStream ExportToJson<T>(T listObj)
+        public static MemoryStream ExportToXlsx<T>(List<T> listObj)
         {
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+
+            var datatable = ToDataTable(listObj);
             using (MemoryStream stream = new MemoryStream())
             {
-                using (StreamWriter sw = new StreamWriter(stream))
+                using (ExcelPackage pck = new ExcelPackage(stream))
                 {
-                    sw.WriteLine(JsonSerializer.Serialize(listObj));
-                    sw.Flush();
+                    ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Sheet1");
+                    ws.Cells["A1"].LoadFromDataTable(datatable, true);
+                    pck.Save();
                 }
                 return stream;
             }
         }
 
-        public static MemoryStream ExportToXlsx<T>(List<T> listObj)
+        public static MemoryStream ExportToCSV<T>(List<T> listObj)
         {
-            DataTable dt = ToDataTable(listObj);
-            using (XLWorkbook wb = new XLWorkbook())
+            var table = ToDataTable(listObj);
+
+            var result = new StringBuilder();
+            for (int i = 0; i < table.Columns.Count; i++)
             {
-                wb.Worksheets.Add(dt);
-                using (MemoryStream stream = new MemoryStream())
+                result.Append(table.Columns[i].ColumnName);
+                result.Append(i == table.Columns.Count - 1 ? "\n" : ",");
+            }
+
+            foreach (DataRow row in table.Rows)
+            {
+                for (int i = 0; i < table.Columns.Count; i++)
                 {
-                    wb.SaveAs(stream);
-                    return stream;
+                    result.Append(row[i].ToString());
+                    result.Append(i == table.Columns.Count - 1 ? "\n" : ",");
                 }
             }
+            var bytes = Encoding.GetEncoding("iso-8859-1").GetBytes(result.ToString());
+            MemoryStream stream = new MemoryStream(bytes);
+
+            return stream;
         }
     }
 }
