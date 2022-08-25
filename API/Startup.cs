@@ -58,6 +58,18 @@ namespace API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
 
+            // Default Policy
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("https://192.168.68.70:8305", "http://localhost:60957")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod();
+                    });
+            });
+
             //Configure application service
             ApplicationServiceRegister.AddApplicationService(services, Configuration);
 
@@ -76,15 +88,15 @@ namespace API
             }
 
             //app.UseHttpsRedirection(); //rediction to ssl . no apply it for development
-            app.UseApiResponseAndExceptionWrapper<MapResponseObject>(
-                new AutoWrapperOptions
-                {
-                    UseApiProblemDetailsException = true,
-                    ApiVersion = "1.0.0",
-                    UseCustomSchema = true,
-                    IgnoreNullValue = false
-                }
-            );
+            //app.UseApiResponseAndExceptionWrapper<MapResponseObject>(
+            //    new AutoWrapperOptions
+            //    {
+            //        UseApiProblemDetailsException = true,
+            //        ApiVersion = "1.0.0",
+            //        UseCustomSchema = true,
+            //        IgnoreNullValue = false
+            //    }
+            //);
 
             app.UseHttpsRedirection();
 
@@ -94,7 +106,7 @@ namespace API
 
             app.UseAuthorization();
 
-            app.UseAuthorization();
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {
