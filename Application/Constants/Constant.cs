@@ -12,7 +12,10 @@ namespace Application.Constants
             xlsx = 1,
 
             [Description("text/csv")]
-            csv = 2
+            csv = 2,
+
+            [Description("application/pdf")]
+            pdf = 3
         }
         public static string GetEnumDescription(this Enum enumValue)
         {

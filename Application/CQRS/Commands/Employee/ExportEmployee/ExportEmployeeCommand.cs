@@ -59,6 +59,11 @@ namespace Application.CQRS.Commands.Employee.ExportEmployee
                     PrintDelegate.print<EmployeeEntity> printCsv = PrintDelegate.ExportToCSV<EmployeeEntity>;
                     memStream = printCsv(listEmployee);
                 }
+                else if (request.PrintType.Equals(Constant.EnumPrint.pdf))
+                {
+                    PrintDelegate.print<EmployeeEntity> printPdf = PrintDelegate.ExportToPdf<EmployeeEntity>;
+                    memStream = printPdf(listEmployee);
+                }
 
                 return memStream;
             }
