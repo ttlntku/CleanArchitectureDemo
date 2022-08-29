@@ -12,17 +12,15 @@ using Application.CQRS.Commands.Employee.DeleteEmployee;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using OfficeOpenXml;
-using Application.Delegates;
-using Core.Entities;
-using Application.CQRS.Responses;
-using System.Linq;
 using Application.CQRS.Commands.Employee.ExportEmployee;
 using System;
 using Application.Constants;
+using Microsoft.AspNetCore.Authorization;
+using Core.Helpers;
 
 namespace API.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     public class EmployeeController : ControllerBase
     {
@@ -35,7 +33,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = EmployeeRole.ROLE_ADMIN_NAME)]
+        [Authorize(Roles = EmployeeRole.ROLE_ADMIN_NAME)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<CustomApiResponse> Get()
         {
@@ -145,7 +143,7 @@ namespace API.Controllers
         }
 
         [HttpGet("export4")]
-        //[ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Export()
         {
             byte[] fileContents;
