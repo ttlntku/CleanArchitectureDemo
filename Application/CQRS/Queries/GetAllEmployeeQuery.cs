@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Core.Entities;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using Application.Delegates;
+using System.Text.Json;
 
 namespace Application.CQRS.Queries
 {
