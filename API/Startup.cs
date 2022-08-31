@@ -64,7 +64,7 @@ namespace API
                 options.AddDefaultPolicy(
                     builder =>
                     {
-                        builder.WithOrigins("https://192.168.68.70:8305", "http://localhost:60957")
+                        builder.WithOrigins("https://192.168.68.70:8305", "http://192.168.68.70:8305")
                                             .AllowAnyHeader()
                                             .AllowAnyMethod();
                     });

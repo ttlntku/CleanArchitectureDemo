@@ -20,7 +20,7 @@ using Core.Helpers;
 
 namespace API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     public class EmployeeController : ControllerBase
     {

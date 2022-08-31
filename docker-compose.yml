@@ -36,33 +36,37 @@ services:
       depends_on:
       - db
       environment:
-      - Kestrel__Endpoints__Http__Url=http://host.docker.internal:8080
-      - Kestrel__Endpoints__Https__Url=https://host.docker.internal:8082
-      - Kestrel__Endpoints__Https__Certificate__Path=/usr/local/share/ca-certificates/sscert_68_70.pfx
-      - Kestrel__Endpoints__Https__Certificate__Password=123@123Aa
-      - Kestrel__Endpoints__Https__Protocols=Http1AndHttp2
+      # - Kestrel__Endpoints__Https__Url=https://host.docker.internal:8082
+      # - Kestrel__Endpoints__Https__Certificate__Path=/usr/local/share/ca-certificates/sscert_68_70.pfx
+      # - Kestrel__Endpoints__Https__Certificate__Password=123@123Aa
+      # - Kestrel__Endpoints__Https__Protocols=Http1AndHttp2
       - ConnectionStrings__EmployeeDB=server=nginxdemo-db;port=3306;userid=root;password=kieudaike;database=employeedb;  
-      - ASPNETCORE_ENVIRONMENT=Development  
-      # - SSO__SecreteKey=#$T@#$%^&AD2$%Eds^251331AD
-      # - SSO__Issuer=http://localhost:5001
-      # - SSO__Audience=http://localhost:5001
-      # - SSO__AccessTokenTimeLifee=1800
-      # - SSO__RefreshTokenTimeLife=86040
-      # - SSO__KeepSessionTimeLife=2592000
-      # - SSO__AuthenScheme=dd-authen
+      - ASPNETCORE_ENVIRONMENT=Development
       build: .
-      ports:
-      - "8080:8080"
-      - "8082:8082"
-      - "8083:80"
+      # ports:
+      # - "8082:8082"
       volumes:
          - dbdata:/var/lib/nginxdemo-service
-         - ./nginx/certs/:/usr/local/share/ca-certificates/:ro
+         # - ./nginx/certs/:/usr/local/share/ca-certificates/:ro
          - ./nginx/entrypoint/clean-architecture-api.sh:/app/entrypoint.sh
       networks:
          - app-network
       entrypoint: ["sh", "entrypoint.sh"]
 
+   nginx:
+      image: nginx:latest
+      container_name: nginx-server
+      depends_on:
+         - API
+      ports:
+         - "8082:443"
+      restart: always
+      volumes:
+         - ./nginx/conf/:/etc/nginx/conf.d/:ro
+         - ./nginx/certs/sscert_68_70.crt:/usr/local/share/ca-certificates/sscert.crt:ro
+         - ./nginx/certs/sscert_68_70.key:/usr/local/share/ca-certificates/sscert.key:ro
+      networks:
+         - app-network
    # certbot:
    #    image: certbot/certbot
    #    container_name: certbot
