@@ -9,8 +9,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Core.Entities;
 using Microsoft.AspNetCore.Http;
-using System.Security.Claims;
-using System.Linq;
 
 namespace Application.CQRS.Commands.Employee.CreateEmployee
 {

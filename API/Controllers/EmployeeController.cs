@@ -54,13 +54,35 @@ namespace API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("{id}")]
+        [Authorize(Roles = EmployeeRole.ROLE_ADMIN_NAME)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<CustomApiResponse> GetById(int id)
+        {
+            try
+            {
+                var result = await _mediator.Send(new GetEmployeeByIdQuery(id));
+
+                if (result is null)
+                {
+                    return new CustomApiResponse(ConstantResponseMessage.NOT_FOUND, result, StatusCodes.Status404NotFound);
+                }
+
+                return new CustomApiResponse(ConstantResponseMessage.SUCCESS, result);
+            }
+            catch (System.Exception ex)
+            {
+                throw new ApiException(ex.ToString(), StatusCodes.Status500InternalServerError);
+            }
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<CustomApiResponse> Post([FromBody] CreateEmployeeCommand createEmployeeCommand)
         {
             try
             {
-                var userName = HttpContext.User.Identity.Name;
                 var result = await _mediator.Send(createEmployeeCommand);
 
                 if (result is null)
