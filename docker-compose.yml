@@ -1,0 +1,80 @@
+﻿version: '3.0'
+services:
+   db:
+      image: mysql:latest
+      container_name: nginxdemo-db
+      environment:
+         MYSQL_ROOT_PASSWORD: kieudaike
+         MYSQL_DATABASE: employeedb
+         MYSQL_USER: dbuser
+         MYSQL_PASSWORD: dbuserpassword
+      volumes:
+         - dbdata:/var/lib/mysql     
+         - ./mysql_init:/docker-entrypoint-initdb.d
+      restart: always
+      networks:
+         - app-network
+
+   phpmyadmin:
+      image: phpmyadmin
+      container_name: pma
+      links:
+         - db
+      environment:
+         PMA_HOST: db
+         PMA_PORT: 3306
+         PMA_ARBITRARY: 1
+      restart: always
+      ports:
+         - 8081:80
+      networks:
+         - app-network
+
+   API:
+      image: kieudaike/cleanarchitecturedemo:latest
+      container_name: cleanarchitecturedemo
+      depends_on:
+      - db
+      environment:
+      - Kestrel__Endpoints__Http__Url=http://host.docker.internal:8080
+      - Kestrel__Endpoints__Https__Url=https://host.docker.internal:8082
+      - Kestrel__Endpoints__Https__Certificate__Path=/usr/local/share/ca-certificates/sscert_68_70.pfx
+      - Kestrel__Endpoints__Https__Certificate__Password=123@123Aa
+      - Kestrel__Endpoints__Https__Protocols=Http1AndHttp2
+      - ConnectionStrings__EmployeeDB=server=nginxdemo-db;port=3306;userid=root;password=kieudaike;database=employeedb;  
+      - ASPNETCORE_ENVIRONMENT=Development  
+      # - SSO__SecreteKey=#$T@#$%^&AD2$%Eds^251331AD
+      # - SSO__Issuer=http://localhost:5001
+      # - SSO__Audience=http://localhost:5001
+      # - SSO__AccessTokenTimeLifee=1800
+      # - SSO__RefreshTokenTimeLife=86040
+      # - SSO__KeepSessionTimeLife=2592000
+      # - SSO__AuthenScheme=dd-authen
+      build: .
+      ports:
+      - "8080:8080"
+      - "8082:8082"
+      - "8083:80"
+      volumes:
+         - dbdata:/var/lib/nginxdemo-service
+         - ./nginx/certs/:/usr/local/share/ca-certificates/:ro
+         - ./nginx/entrypoint/clean-architecture-api.sh:/app/entrypoint.sh
+      networks:
+         - app-network
+      entrypoint: ["sh", "entrypoint.sh"]
+
+   # certbot:
+   #    image: certbot/certbot
+   #    container_name: certbot
+   #    volumes: 
+   #       - ./nginx/certbot/conf:/etc/letsencrypt:/rw
+   #       - ./nginx/certbot/www:/var/www/certbot/:rw
+   #    # command: certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d nginxserver-client.com
+
+# #Docker Networks
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+   dbdata:

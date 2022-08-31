@@ -1,0 +1,22 @@
+[req]
+default_bits  = 2048
+distinguished_name = req_distinguished_name
+x509_extensions = v3_req
+prompt = no
+
+[req_distinguished_name]
+countryName = VN
+stateOrProvinceName = HN
+localityName = Hanoi
+organizationName = MIC sscert-68-70
+commonName = MIC sscert-68-70
+
+[v3_req]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid,issuer
+basicConstraints = CA:TRUE
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = localhost
+IP.1 = 192.168.68.70

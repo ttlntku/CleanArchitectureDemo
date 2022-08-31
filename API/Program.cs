@@ -28,7 +28,7 @@ namespace API
             .ConfigureLogging(logging =>
                 {
                     //clear init log
-                    logging.ClearProviders();
+                    //logging.ClearProviders();
 
                     logging.SetMinimumLevel(LogLevel.Information);
                 }).UseNLog()
