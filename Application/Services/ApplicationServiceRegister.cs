@@ -24,7 +24,7 @@ namespace Application.Services
                 int.Parse(configuration["SSO:AccessTokenTimeLife"]),
                 int.Parse(configuration["SSO:RefreshTokenTimeLife"]),
                 int.Parse(configuration["SSO:KeepSessionTimeLife"]),
-                configuration["SSO:SecreteKey"]);
+                configuration["SSO:SecretKey"]);
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
@@ -42,7 +42,7 @@ namespace Application.Services
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(o =>
             {
-                var key = Encoding.UTF8.GetBytes(configuration["SSO:SecreteKey"]);
+                var key = Encoding.UTF8.GetBytes(configuration["SSO:SecretKey"]);
                 o.SaveToken = true;
                 o.TokenValidationParameters = new TokenValidationParameters
                 {
