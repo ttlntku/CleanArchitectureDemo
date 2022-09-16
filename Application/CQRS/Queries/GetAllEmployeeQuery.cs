@@ -11,6 +11,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using Application.Delegates;
 using System.Text.Json;
+using AutoMapper;
 
 namespace Application.CQRS.Queries
 {
@@ -21,17 +22,19 @@ namespace Application.CQRS.Queries
     public class GetAllEmployeeHandler : IRequestHandler<GetAllEmployeeQuery, IReadOnlyList<EmployeeResponse>>
     {
         private readonly IEmployeeRepository _employeeRepository;
+        private IMapper _mapper;
 
-        public GetAllEmployeeHandler(IEmployeeRepository employeeRepository)
+        public GetAllEmployeeHandler(IEmployeeRepository employeeRepository, IMapper mapper)
         {
             _employeeRepository = employeeRepository;
+            _mapper = mapper;
         }
 
         public async Task<IReadOnlyList<EmployeeResponse>> Handle(GetAllEmployeeQuery request, CancellationToken cancellationToken)
         {
 
             List<EmployeeEntity> listEmployee = await _employeeRepository.GetAllAsync();
-            IReadOnlyList<EmployeeResponse> listEmployeeResponse = listEmployee.Select(le => MapperConfig.mapper.Map<EmployeeResponse>(le)).ToList();
+            IReadOnlyList<EmployeeResponse> listEmployeeResponse = listEmployee.Select(le => _mapper.Map<EmployeeResponse>(le)).ToList();
 
             return listEmployeeResponse;
         }

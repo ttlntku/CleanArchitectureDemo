@@ -6,6 +6,7 @@ using MediatR;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace Application.CQRS.Commands.Login
 {
@@ -34,17 +35,19 @@ namespace Application.CQRS.Commands.Login
         public class LoginEmployeeHandler : IRequestHandler<LoginCommand, TokenDto>
         {
             private readonly IJWTClient _jwtClient;
+            private IMapper _mapper;
 
-            public LoginEmployeeHandler(IJWTClient jwtClient)
+            public LoginEmployeeHandler(IJWTClient jwtClient, IMapper mapper)
             {
                 _jwtClient = jwtClient;
+                _mapper = mapper;
             }
 
             public async Task<TokenDto> Handle(LoginCommand request, CancellationToken cancellationToken)
             {
                 try
                 {
-                    var loginDto = MapperConfig.mapper.Map<LoginCommandDto>(request);
+                    var loginDto = _mapper.Map<LoginCommandDto>(request);
                     var tokenDto = await _jwtClient.Authenticate(loginDto);
 
                     return tokenDto;

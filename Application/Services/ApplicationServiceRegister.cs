@@ -1,7 +1,9 @@
 ﻿using Application.Configs;
+using Application.Mappers;
 using Application.Services.JWTClientService;
 using Application.Services.PersistenceFactoryService;
 using Application.Validations;
+using AutoMapper;
 using Core.Helpers;
 using FluentValidation;
 using MediatR;
@@ -12,6 +14,7 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Application.Services
 {
@@ -64,6 +67,16 @@ namespace Application.Services
             });
 
             services.AddTransient<IJWTClient, JWTClient>();
+
+            // Auto Mapper Configurations
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+            //services.AddControllers().AddJsonOptions(x =>
+            //    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
         }
     }
 }

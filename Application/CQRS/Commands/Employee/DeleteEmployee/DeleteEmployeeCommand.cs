@@ -7,6 +7,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Core.Entities;
+using AutoMapper;
 
 namespace Application.CQRS.Commands.Employee.DeleteEmployee
 {
@@ -31,17 +32,19 @@ namespace Application.CQRS.Commands.Employee.DeleteEmployee
     public class DeleteEmployeeHandler : IRequestHandler<DeleteEmployeeCommand, bool>
     {
         private readonly IEmployeeRepository _employeeRepository;
+        private IMapper _mapper;
 
-        public DeleteEmployeeHandler(IEmployeeRepository employeeRepository)
+        public DeleteEmployeeHandler(IEmployeeRepository employeeRepository, IMapper mapper)
         {
             _employeeRepository = employeeRepository;
+            _mapper = mapper;
         }
 
         public async Task<bool> Handle(DeleteEmployeeCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var employeeDto = MapperConfig.mapper.Map<DeleteEmployeeCommand>(request);
+                var employeeDto = _mapper.Map<DeleteEmployeeCommand>(request);
 
                 EmployeeEntity _employeeEntity = new EmployeeEntity()
                 {

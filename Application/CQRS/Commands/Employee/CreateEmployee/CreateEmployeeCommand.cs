@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Core.Entities;
 using Microsoft.AspNetCore.Http;
+using AutoMapper;
 
 namespace Application.CQRS.Commands.Employee.CreateEmployee
 {
@@ -56,15 +57,17 @@ namespace Application.CQRS.Commands.Employee.CreateEmployee
     {
         private readonly IEmployeeRepository _employeeRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public CreateEmployeeHandler(IEmployeeRepository employeeRepository, IHttpContextAccessor httpContextAccessor)
+        private IMapper _mapper;
+        public CreateEmployeeHandler(IEmployeeRepository employeeRepository, IHttpContextAccessor httpContextAccessor, IMapper mapper)
         {
             _employeeRepository = employeeRepository;
             _httpContextAccessor = httpContextAccessor;
+            _mapper = mapper;
         }
 
         public async Task<EmployeeResponse> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
         {
-            var employeeDto = MapperConfig.mapper.Map<CreateEmployeeCommandDto>(request);
+            var employeeDto = _mapper.Map<CreateEmployeeCommandDto>(request);
             var loginName = _httpContextAccessor.HttpContext.User.Identity.Name;
 
             EmployeeEntity _employeeEntity = new EmployeeEntity()
@@ -79,7 +82,7 @@ namespace Application.CQRS.Commands.Employee.CreateEmployee
             };
 
             var newEmployee = await _employeeRepository.AddAsync(_employeeEntity, loginName, loginName);
-            var employeeResponse = MapperConfig.mapper.Map<EmployeeResponse>(newEmployee);
+            var employeeResponse = _mapper.Map<EmployeeResponse>(newEmployee);
 
             return employeeResponse;
         }

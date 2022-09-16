@@ -8,17 +8,20 @@ using Core.Entities;
 
 namespace Application.Mappers
 {
-    public class EmployeeMappingProfile : Profile
+    public class MappingProfile : Profile
     {
-        public EmployeeMappingProfile()
+        public MappingProfile()
         {
             //configure mapping profile for employee
             CreateMap<EmployeeEntity, EmployeeResponse>().ReverseMap();
-
+            CreateMap<EmployeeEntity, EmployeeParam>().ReverseMap();
             CreateMap<CreateEmployeeCommandDto, CreateEmployeeCommand>().ReverseMap();
             CreateMap<UpdateEmployeeCommandDto, UpdateEmployeeCommand>().ReverseMap();
             CreateMap<DeleteEmployeeCommandDto, DeleteEmployeeCommand>().ReverseMap();
             CreateMap<LoginCommandDto, LoginCommand>().ReverseMap();
+
+            CreateMap<FactoryEntity, FactoryResponse>().ReverseMap();
+            CreateMap<FactoryEntity, FactoryParam>().ReverseMap();
         }
     }
 }

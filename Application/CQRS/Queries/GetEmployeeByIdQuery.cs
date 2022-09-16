@@ -1,5 +1,6 @@
 ﻿using Application.CQRS.Responses;
 using Application.Mappers;
+using AutoMapper;
 using Core.Entities;
 using Core.Repositories;
 using MediatR;
@@ -21,18 +22,20 @@ namespace Application.CQRS.Queries
     public class GetEmployeeByIdHandler : IRequestHandler<GetEmployeeByIdQuery, EmployeeResponse>
     {
         private readonly IEmployeeRepository _employeeRepository;
+        private IMapper _mapper;
 
-        public GetEmployeeByIdHandler(IEmployeeRepository employeeRepository)
+        public GetEmployeeByIdHandler(IEmployeeRepository employeeRepository, IMapper mapper)
         {
             _employeeRepository = employeeRepository;
+            _mapper = mapper;
         }
 
         public async Task<EmployeeResponse> Handle(GetEmployeeByIdQuery request, CancellationToken cancellationToken)
         {
 
             EmployeeEntity foundEmployee = await _employeeRepository.GetByIdAsync(request.Id);
-            var employeeResponse = MapperConfig.mapper.Map<EmployeeResponse>(foundEmployee);
 
+            var employeeResponse = _mapper.Map<EmployeeResponse>(foundEmployee);
 
             return employeeResponse;
         }

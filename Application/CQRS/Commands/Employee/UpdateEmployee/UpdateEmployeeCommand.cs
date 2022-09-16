@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Core.Entities;
 using Microsoft.AspNetCore.Http;
+using AutoMapper;
 
 namespace Application.CQRS.Commands.Employee.UpdateEmployee
 {
@@ -39,16 +40,18 @@ namespace Application.CQRS.Commands.Employee.UpdateEmployee
     {
         private readonly IEmployeeRepository _employeeRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private IMapper _mapper;
 
-        public UpdateEmployeeHandler(IEmployeeRepository employeeRepository, IHttpContextAccessor httpContextAccessor)
+        public UpdateEmployeeHandler(IEmployeeRepository employeeRepository, IHttpContextAccessor httpContextAccessor, IMapper mapper)
         {
             _employeeRepository = employeeRepository;
             _httpContextAccessor = httpContextAccessor;
+            _mapper = mapper;
         }
 
         public async Task<EmployeeResponse> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
         {
-            var employeeDto = MapperConfig.mapper.Map<UpdateEmployeeCommandDto>(request);
+            var employeeDto = _mapper.Map<UpdateEmployeeCommandDto>(request);
             var loginName = _httpContextAccessor.HttpContext.User.Identity.Name;
 
             var toUpdateEmployee = await _employeeRepository.GetByIdAsync(employeeDto.Id);
@@ -67,7 +70,7 @@ namespace Application.CQRS.Commands.Employee.UpdateEmployee
             toUpdateEmployee.Role = CustomUtilities.IsNullOrSecondValue<Int16>(employeeDto.Role, toUpdateEmployee.Role);
 
             var updatedEmployee = await _employeeRepository.UpdateAsync(toUpdateEmployee, loginName);
-            var employeeResponse = MapperConfig.mapper.Map<EmployeeResponse>(updatedEmployee);
+            var employeeResponse = _mapper.Map<EmployeeResponse>(updatedEmployee);
 
             return employeeResponse;
         }
