@@ -22,5 +22,10 @@ namespace Infrastructure.Repositories
         {
             return await _dataContext.Employees.Where(m => m.LastName == lastName).ToListAsync();
         }
+
+        public async Task<EmployeeEntity> GetByIdAsync(int id)
+        {
+            return await _dataContext.Employees.Include(e => e.Factories).AsNoTracking().FirstOrDefaultAsync(s => s.Id.Equals(id));
+        }
     }
 }

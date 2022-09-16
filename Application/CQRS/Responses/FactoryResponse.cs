@@ -7,7 +7,14 @@ using System.Threading.Tasks;
 
 namespace Application.CQRS.Responses
 {
-    public class EmployeeResponse
+    public class FactoryResponse
+    {
+        public string FactoryName { get; set; }
+        public string FactoryAddress { get; set; }
+        public List<EmployeeParam> Employees { get; set; }
+    }
+
+    public class EmployeeParam
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -15,12 +22,5 @@ namespace Application.CQRS.Responses
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public Int16 Role { get; set; }
-        public List<FactoryParam> Factories { get; set; }
-    }
-
-    public class FactoryParam
-    {
-        public string FactoryName { get; set; }
-        public string FactoryAddress { get; set; }
     }
 }

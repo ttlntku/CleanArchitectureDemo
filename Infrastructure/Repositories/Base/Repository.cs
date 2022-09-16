@@ -12,9 +12,12 @@ namespace Infrastructure.Repositories.Base
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
         protected readonly DataContext _dataContext;
-        public Repository(DataContext employeeContext)
+        protected readonly DbSet<T> DbSet;
+
+        public Repository(DataContext dataContext)
         {
-            _dataContext = employeeContext;
+            _dataContext = dataContext;         
+            DbSet = dataContext.Set<T>();
         }
         public async Task<T> AddAsync(T entity, string createdBy, string updatedBy)
         {
@@ -22,32 +25,32 @@ namespace Infrastructure.Repositories.Base
             entity.CreatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
             entity.UpdatedBy = updatedBy;
             entity.UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
-            await _dataContext.Set<T>().AddAsync(entity);
+            await DbSet.AddAsync(entity);
             await _dataContext.SaveChangesAsync();
             return entity;
         }
 
         public async Task DeleteAsync(T entity)
         {
-            _dataContext.Set<T>().Remove(entity);
+            DbSet.Remove(entity);
             await _dataContext.SaveChangesAsync();
         }
 
         public async Task<List<T>> GetAllAsync()
         {
-            return await _dataContext.Set<T>().ToListAsync();
+            return await DbSet.ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _dataContext.Set<T>().AsNoTracking().FirstOrDefaultAsync(s => s.Id.Equals(id));
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(s => s.Id.Equals(id));
         }
 
         public async Task<T> UpdateAsync(T entity, string updatedBy)
         {
             entity.UpdatedBy = updatedBy;
             entity.UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now);
-            _dataContext.Set<T>().Update(entity);
+            DbSet.Update(entity);
             await _dataContext.SaveChangesAsync();
             return entity;
         }

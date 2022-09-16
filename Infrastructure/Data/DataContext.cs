@@ -9,10 +9,12 @@ namespace Infrastructure.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         public DbSet<EmployeeEntity> Employees { get; set; }
+        public DbSet<FactoryEntity> Factories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // map entities to tables
             modelBuilder.Entity<EmployeeEntity>().ToTable("tbl_employee");
+            modelBuilder.Entity<FactoryEntity>().ToTable("tbl_factory");
 
             ////configure primary key
             //modelBuilder.Entity<EmployeeEntity>().HasKey(e => e.Id).HasName("PK_Employee");
@@ -77,6 +79,38 @@ namespace Infrastructure.Data
                     Email = "louisvuitton@gmail.com",
                     Password = "louis1",
                     Role = EmployeeRole.ROLE_USER,
+                    CreatedBy = "KIEU",
+                    CreatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now),
+                    UpdatedBy = "KIEU",
+                    UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now)
+                });
+
+            modelBuilder.Entity<FactoryEntity>().HasData(
+                new FactoryEntity
+                {
+                    Id = 1,
+                    FactoryName = "Sam Sung",
+                    FactoryAddress = "Next Eight",
+                    CreatedBy = "KIEU",
+                    CreatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now),
+                    UpdatedBy = "KIEU",
+                    UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now)
+                },
+                new FactoryEntity
+                {
+                    Id = 2,
+                    FactoryName = "Apple",
+                    FactoryAddress = "America Dinh",
+                    CreatedBy = "KIEU",
+                    CreatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now),
+                    UpdatedBy = "KIEU",
+                    UpdatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now)
+                },
+                new FactoryEntity
+                {
+                    Id = 3,
+                    FactoryName = "Amazon",
+                    FactoryAddress = "Park Ninh",
                     CreatedBy = "KIEU",
                     CreatedAt = CustomUtilities.CustomDatetimeConvert(DateTime.Now),
                     UpdatedBy = "KIEU",

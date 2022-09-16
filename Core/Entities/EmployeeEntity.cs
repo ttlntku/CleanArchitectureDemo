@@ -1,5 +1,6 @@
 ﻿using Core.Entities.Base;
 using System;
+using System.Collections.Generic;
 
 namespace Core.Entities
 {
@@ -12,5 +13,6 @@ namespace Core.Entities
         public string Email { get; set; }
         public string Password { get; set; }
         public Int16 Role { get; set; }
+        public virtual ICollection<FactoryEntity> Factories { get; set; }
     }
 }
